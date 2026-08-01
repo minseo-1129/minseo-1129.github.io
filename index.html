@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minseo - Portfolio</title>
+    <style>
+        @font-face {
+            font-family: 'D2Coding';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://raw.githubusercontent.com/wan2land/d2coding/master/fonts/d2coding-subset.woff2') format('woff2'),
+                 url('https://raw.githubusercontent.com/wan2land/d2coding/master/fonts/d2coding-subset.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'D2Coding';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://raw.githubusercontent.com/wan2land/d2coding/master/fonts/d2coding-bold-subset.woff2') format('woff2'),
+                 url('https://raw.githubusercontent.com/wan2land/d2coding/master/fonts/d2coding-bold-subset.woff') format('woff');
+        }
+        /* Reimei (여명) Soft Blue Palette */
+        :root {
+            --bg: #12161a;         /* Deep Dawn Twilight Dark */
+            --text-main: #e2e8f0;  /* Crisp light text */
+            --text-muted: #94a3b8; /* Soft slate grey */
+            --accent: #7dd3fc;     /* Soft Reimei Sky Blue */
+            --border: #222e3a;     /* Deep slate border */
+            --font: 'D2Coding', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f8fafc;
+                --text-main: #0f172a;
+                --text-muted: #475569;
+                --accent: #0284c7;  /* Clear Morning Blue */
+                --border: #e2e8f0;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Top Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+            margin-bottom: 60px;
+            font-size: 0.9rem;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font);
+            cursor: pointer;
+            padding-bottom: 2px;
+            border-bottom: 1px dashed transparent;
+            transition: all 0.2s ease;
+        }
+
+        nav button:hover, nav button.active {
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* Section Tab Visibility Switcher */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Home Page Styling (Ultra Minimal) */
+        header {
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        p.intro {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 580px;
+            margin-bottom: 30px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent);
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent);
+            border-bottom-style: solid;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Content List Layout */
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .item-main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .item-author {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .item-venue {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        .item-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .item-meta {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        /* Skills block in Bio */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            font-size: 0.8rem;
+            background: var(--border);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Top Nav / Lazar-style Tab buttons -->
+    <nav>
+        <button class="active" onclick="switchTab('home')">Home</button>
+        <button onclick="switchTab('bio')">Bio</button>
+        <button onclick="switchTab('project')">Project</button>
+        <button onclick="switchTab('publications')">Publications</button>
+    </nav>
+
+    <!-- 1. HOME TAB (Ultra Minimalist) -->
+    <div id="home" class="tab-content active">
+        <header>
+            <h1>Hello, I'm Minseo.</h1>
+            <div class="subtitle">HCI Researcher & Designer</div>
+            <p class="intro">
+                HCI PhD Student focusing on bridging user experience, system design, and technical engineering. Exploring the interfaces of tomorrow.
+            </p>
+            <div class="socials">
+                <a href="https://github.com/minseo-1129" target="_blank">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="mailto:your@email.com">Email</a>
+            </div>
+        </header>
+    </div>
+
+    <!-- 2. BIO TAB (Education & Skills) -->
+    <div id="bio" class="tab-content">
+        <section>
+            <h2>Biography</h2>
+            <p class="intro" style="margin-bottom: 25px;">
+                Write your background narrative here. Talk about what drives your research in HCI, your education milestones, and your overarching design philosophy.
+            </p>
+            
+            <h2>Education</h2>
+            <div class="list-container">
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title">Ph.D. in Human-Computer Interaction</span>
+                        <span class="item-desc">Your University Name</span>
+                    </div>
+                    <div class="item-meta">2024 -- Present</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title">B.S. / M.S. in Computer Science or Design</span>
+                        <span class="item-desc">Previous University Name</span>
+                    </div>
+                    <div class="item-meta">2020 -- 2024</div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 35px;">Core Skillsets</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Quantitative / Qualitative UX Research</span>
+                <span class="skill-tag">Interface Design & Prototyping</span>
+                <span class="skill-tag">Web Development (HTML/CSS/JS)</span>
+                <span class="skill-tag">User Evaluation</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- 3. PROJECT TAB -->
+    <div id="project" class="tab-content">
+        <section>
+            <h2>Projects</h2>
+            <div class="list-container">
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">Your project title goes here</a></span>
+                        <span class="item-desc">A short description of the project — what it is, your role, and the outcome.</span>
+                    </div>
+                    <div class="item-meta">Year</div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- 4. PUBLICATIONS TAB -->
+    <div id="publications" class="tab-content">
+        <section>
+            <h2>Publications</h2>
+            <div class="list-container">
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">The Role of Generative Summarisation in Agent-Mediated Reflection for Youth Social Prescribing</a></span>
+                        <span class="item-author"><strong>M Cho</strong>, MC Di Simplicio, RA Calvo</span>
+                        <span class="item-venue">Proceedings of the 8th ACM Conference on Conversational User Interfaces</span>
+                    </div>
+                    <div class="item-meta">2026</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">Adolescent Self-Reflection Process Through Self-Recording on Multiple Health Metrics: Qualitative Study</a></span>
+                        <span class="item-author"><strong>M Cho</strong>, D Park, M Choo, DH Han, J Kim</span>
+                        <span class="item-venue">Journal of Medical Internet Research 27, e62962</span>
+                    </div>
+                    <div class="item-meta">2025</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">Designing Conversational Agents to Support Social Prescribing for Young People</a></span>
+                        <span class="item-author"><strong>M Cho</strong></span>
+                        <span class="item-venue">38th International BCS Human-Computer Interaction Conference, 292-297</span>
+                    </div>
+                    <div class="item-meta">2025</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">Impact of Digital Phenotypes and Question-Asking on Emotional Disorders in Adolescents: 4-Week Field Study</a></span>
+                        <span class="item-author"><strong>M Cho</strong>, D Park, M Choo, DH Han, J Kim</span>
+                        <span class="item-venue">JMIR Human Factors 12, e66536</span>
+                    </div>
+                    <div class="item-meta">2025</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">Conversational AI in Community Care: Preliminary Insights from a Scoping Review</a></span>
+                        <span class="item-author"><strong>M Cho</strong>, MD Re, T Simpson, M Harrison, RA Calvo</span>
+                        <span class="item-venue">38th International BCS Human-Computer Interaction Conference, 471-480</span>
+                    </div>
+                    <div class="item-meta">2025</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">Exploring a Multimodal Approach for Utilizing Digital Biomarkers for Childhood Mental Health Screening</a></span>
+                        <span class="item-author">M Choo, D Park, <strong>M Cho</strong>, S Bae, J Kim, DH Han</span>
+                        <span class="item-venue">Frontiers in Psychiatry 15, 1348319</span>
+                    </div>
+                    <div class="item-meta">2024</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">Collaborative School Mental Health System: Leveraging a Conversational Agent for Enhancing Children's Executive Function</a></span>
+                        <span class="item-author">D Park, M Choo, <strong>M Cho</strong>, J Kim, YJ Shin</span>
+                        <span class="item-venue">Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems</span>
+                    </div>
+                    <div class="item-meta">2024</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">Development and Initial Evaluation of a Digital Phenotype Collection System for Adolescents: Proof-of-Concept Study</a></span>
+                        <span class="item-author"><strong>M Cho</strong>, D Park, M Choo, J Kim, DH Han</span>
+                        <span class="item-venue">JMIR Formative Research 8, e59623</span>
+                    </div>
+                    <div class="item-meta">2024</div>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title"><a href="#">HCI 3.0 - 인간과 인공지능의 상호작용(HAII)를 중심으로</a></span>
+                        <span class="item-author">김진우, HCILab</span>
+                    </div>
+                    <div class="item-meta">2024</div>
+                </div>
+
+            </div>
+            <p class="intro" style="margin-top: 30px; font-size: 0.85rem;">
+                <a href="https://scholar.google.com/citations?user=rKL2pVMAAAAJ&hl=ko" target="_blank">View full list on Google Scholar &rarr;</a>
+            </p>
+        </section>
+    </div>
+
+    <!-- Minimalist Footer -->
+    <footer>
+        <span>© 2026 Minseo</span>
+    </footer>
+
+</div>
+
+<!-- Tab Navigation Logic JavaScript -->
+<script>
+    function switchTab(tabId) {
+        // Hide all tabs
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        // Remove active styling from all nav buttons
+        const buttons = document.querySelectorAll('nav button');
+        buttons.forEach(button => button.classList.remove('active'));
+        
+        // Show selected tab & highlight active button
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
