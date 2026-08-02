@@ -5,22 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minseo - Portfolio</title>
     <style>
-        @font-face {
-            font-family: 'D2Coding';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url('https://raw.githubusercontent.com/wan2land/d2coding/master/fonts/d2coding-subset.woff2') format('woff2'),
-                 url('https://raw.githubusercontent.com/wan2land/d2coding/master/fonts/d2coding-subset.woff') format('woff');
-        }
-        @font-face {
-            font-family: 'D2Coding';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url('https://raw.githubusercontent.com/wan2land/d2coding/master/fonts/d2coding-bold-subset.woff2') format('woff2'),
-                 url('https://raw.githubusercontent.com/wan2land/d2coding/master/fonts/d2coding-bold-subset.woff') format('woff');
-        }
         /* Reimei (여명) Soft Blue Palette */
         :root {
             --bg: #12161a;         /* Deep Dawn Twilight Dark */
@@ -28,7 +12,7 @@
             --text-muted: #94a3b8; /* Soft slate grey */
             --accent: #7dd3fc;     /* Soft Reimei Sky Blue */
             --border: #222e3a;     /* Deep slate border */
-            --font: 'D2Coding', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         }
 
         @media (prefers-color-scheme: light) {
@@ -45,6 +29,11 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            overflow-y: scroll;      /* fallback: always show the scrollbar track */
+            scrollbar-gutter: stable; /* modern browsers: reserve the space without showing it unless needed */
         }
 
         body {
@@ -208,6 +197,49 @@
             border-radius: 4px;
         }
 
+        /* Year-grouped collapsible publications */
+        details {
+            margin-bottom: 14px;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 14px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.03em;
+            padding: 4px 0;
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: '▸';
+            display: inline-block;
+            margin-right: 10px;
+            transition: transform 0.2s ease;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .year-count {
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 0.85rem;
+        }
+
+        details .list-container {
+            margin-top: 16px;
+            padding-left: 24px;
+        }
+
         footer {
             margin-top: 100px;
             padding-top: 20px;
@@ -234,14 +266,16 @@
     <!-- 1. HOME TAB (Ultra Minimalist) -->
     <div id="home" class="tab-content active">
         <header>
-            <h1>Hello, I'm Minseo.</h1>
-            <div class="subtitle">HCI Researcher & Designer</div>
+            <h1>hello, i'm minseo cho</h1>
+            <div class="subtitle">hci researcher &amp; designer</div>
+            <p class="intro" style="margin-bottom: 6px;">
+                @ <a href="https://www.imperial.ac.uk/" target="_blank">imperial college london</a>
+            </p>
             <p class="intro">
-                HCI PhD Student focusing on bridging user experience, system design, and technical engineering. Exploring the interfaces of tomorrow.
+                london · uk
             </p>
             <div class="socials">
-                <a href="https://github.com/minseo-1129" target="_blank">GitHub</a>
-                <a href="#">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/minseo-cho-4b919a201" target="_blank">LinkedIn</a>
                 <a href="mailto:your@email.com">Email</a>
             </div>
         </header>
@@ -250,26 +284,35 @@
     <!-- 2. BIO TAB (Education & Skills) -->
     <div id="bio" class="tab-content">
         <section>
-            <h2>Biography</h2>
-            <p class="intro" style="margin-bottom: 25px;">
-                Write your background narrative here. Talk about what drives your research in HCI, your education milestones, and your overarching design philosophy.
-            </p>
-            
             <h2>Education</h2>
             <div class="list-container">
                 <div class="list-item">
                     <div class="item-main">
-                        <span class="item-title">Ph.D. in Human-Computer Interaction</span>
-                        <span class="item-desc">Your University Name</span>
+                        <span class="item-title">PhD, Design Engineering</span>
+                        <span class="item-desc">Imperial College London</span>
                     </div>
-                    <div class="item-meta">2024 -- Present</div>
+                    <div class="item-meta">Sep 2024 - Aug 2028</div>
                 </div>
                 <div class="list-item">
                     <div class="item-main">
-                        <span class="item-title">B.S. / M.S. in Computer Science or Design</span>
-                        <span class="item-desc">Previous University Name</span>
+                        <span class="item-title">Master of Engineering, HCI (Human-Computer Interaction)</span>
+                        <span class="item-desc">Yonsei University</span>
                     </div>
-                    <div class="item-meta">2020 -- 2024</div>
+                    <div class="item-meta">Sep 2022 - Aug 2024</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title">Bachelor of Science, Information and Interaction Design</span>
+                        <span class="item-desc">Yonsei University</span>
+                    </div>
+                    <div class="item-meta">Mar 2019 - Aug 2022</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-main">
+                        <span class="item-title">Bachelor of Arts, Communication and Media Studies</span>
+                        <span class="item-desc">Yonsei University</span>
+                    </div>
+                    <div class="item-meta">Mar 2019 - Aug 2022</div>
                 </div>
             </div>
 
@@ -287,17 +330,121 @@
     <div id="project" class="tab-content">
         <section>
             <h2>Projects</h2>
-            <div class="list-container">
 
-                <div class="list-item">
-                    <div class="item-main">
-                        <span class="item-title"><a href="#">Your project title goes here</a></span>
-                        <span class="item-desc">A short description of the project — what it is, your role, and the outcome.</span>
+            <details open>
+                <summary>2024 <span class="year-count">(5)</span></summary>
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">REDI: A Digital Journaling Application for Capturing Digital Phenotypes in Adolescents with Mood Disorders</a></span>
+                            <span class="item-desc">Associated with HAII Corp. - Human AI Interaction. REDI is an android-based digital journaling application to collect digital phenotypes in adolescents. Active data (mood and lifestyle behaviors) are captured through ecological momentary assessments, while passive data (location, sleep patterns, and physical activity) are gathered unobtrusively in background.</span>
+                        </div>
+                        <div class="item-meta">Aug 2022 – Dec 2024</div>
                     </div>
-                    <div class="item-meta">Year</div>
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">Development of Digital Therapeutic Devices for Depression, Anxiety, and Self-Harm/Suicide Prevention in Adolescents and Young Adults Using Multimodal Digital Phenotype Metadata</a></span>
+                            <span class="item-desc">Associated with Yonsei University</span>
+                        </div>
+                        <div class="item-meta">Mar 2024 – Aug 2024</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">Development of a Digital Phenotype-Based Platform for Monitoring and Intervening in the Psychological States of Children and Adolescents</a></span>
+                            <span class="item-desc">Associated with Yonsei University</span>
+                        </div>
+                        <div class="item-meta">Mar 2022 – Aug 2024</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">Experience Engineering for Companion Technologies</a></span>
+                            <span class="item-desc">Associated with Yonsei University</span>
+                        </div>
+                        <div class="item-meta">Sep 2022 – Aug 2024</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">ForMe: A Conversational Therapeutic Companion for Children with ADHD</a></span>
+                            <span class="item-desc">Associated with HAII Corp. - Human AI Interaction. ForMe is a AI-based digital companion enhancing executive function in children with ADHD. Through a series of interactive dialogues, children engage in daily routines and develop self-regulation skills.</span>
+                        </div>
+                        <div class="item-meta">Mar 2022 – Aug 2024</div>
+                    </div>
                 </div>
+            </details>
 
-            </div>
+            <details>
+                <summary>2022 <span class="year-count">(1)</span></summary>
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">Math Hero: An Interactive AI Math Game for Elementary Students</a></span>
+                            <span class="item-desc">Math Hero is an educational game helping elementary students practice math skills through interactive, self-paced learning. The game adapts to learner's level, offering personalised challenges and instant feedback.</span>
+                        </div>
+                        <div class="item-meta">Jan 2022 – Mar 2022</div>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>2021 <span class="year-count">(1)</span></summary>
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">Winnus: A Multisensory Mobile Guide to Wine for Beginners</a></span>
+                            <span class="item-desc">Associated with University MakeUs Challenge (UMC). Winnus is a wine recommendation platform that maps wine's taste and aroma profiles into interactive visuals. Designed for novices, the system adjusts user interactions based on their wine knowledge.</span>
+                        </div>
+                        <div class="item-meta">Aug 2021 – Dec 2021</div>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>2020 <span class="year-count">(4)</span></summary>
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">PICO: An AI-Powered Outfit Coordination Service</a></span>
+                            <span class="item-desc">Associated with SOTA Labs. PICO is a mobile application that uses AI to recognise clothing items from user photos, extract and store cutouts. The app generates personalised styling suggestions to enhance user wardrobe management and style.</span>
+                        </div>
+                        <div class="item-meta">Dec 2019 – Dec 2020</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">Recipe Player: A Curated Recipe Service for Single-Person Households</a></span>
+                            <span class="item-desc">Associated with Yonsei University. A personalised recipe recommendation service for single-person households. The system considers individual preferences and lifestyle context to suggest recipes. It also includes speech recognition for hands-free control.</span>
+                        </div>
+                        <div class="item-meta">Sep 2020 – Dec 2020</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">Sweetalk: A Video Call Application for Long-Distance Couples</a></span>
+                            <span class="item-desc">Associated with Yonsei University. Sweetalk is a video calling platform that detects users' movements and spoken words to generate emoticons, improving non-verbal communication and emotional expression for couples in long-distance relationships.</span>
+                        </div>
+                        <div class="item-meta">Mar 2020 – Jun 2020</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">The Lighthouse: An Interactive Mood Lamp Humidifier Powered by Arduino</a></span>
+                            <span class="item-desc">Associated with Yonsei University. Arduino-powered mood lamp and humidifier shaped like a lighthouse that senses water levels and ambient light to trigger lighting and music effects. Made with eco-friendly materials for sustainability.</span>
+                        </div>
+                        <div class="item-meta">Mar 2020 – Jun 2020</div>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>2019 <span class="year-count">(1)</span></summary>
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="item-main">
+                            <span class="item-title"><a href="#">Kiketch: Interactive Drawing Book for Early Childhood Emotional Development</a></span>
+                            <span class="item-desc">An artificial intelligence-based application to support the emotional growth of young children. As children draw to create their own narratives, the system animates them, and plays contextually appropriate sounds.</span>
+                        </div>
+                        <div class="item-meta">Jun 2019 – Nov 2019</div>
+                    </div>
+                </div>
+            </details>
+
         </section>
     </div>
 
@@ -379,18 +526,7 @@
                     <div class="item-meta">2024</div>
                 </div>
 
-                <div class="list-item">
-                    <div class="item-main">
-                        <span class="item-title"><a href="#">HCI 3.0 - 인간과 인공지능의 상호작용(HAII)를 중심으로</a></span>
-                        <span class="item-author">김진우, HCILab</span>
-                    </div>
-                    <div class="item-meta">2024</div>
-                </div>
-
             </div>
-            <p class="intro" style="margin-top: 30px; font-size: 0.85rem;">
-                <a href="https://scholar.google.com/citations?user=rKL2pVMAAAAJ&hl=ko" target="_blank">View full list on Google Scholar &rarr;</a>
-            </p>
         </section>
     </div>
 
