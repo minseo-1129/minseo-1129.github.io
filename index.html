@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minseo - Portfolio</title>
+    <title>Minseo Cho — HCI Researcher &amp; Designer</title>
     <style>
         /* Reimei (여명) Soft Blue Palette */
         :root {
@@ -197,47 +197,142 @@
             border-radius: 4px;
         }
 
-        /* Year-grouped collapsible publications */
-        details {
-            margin-bottom: 14px;
-            border-bottom: 1px dashed var(--border);
-            padding-bottom: 14px;
+        /* Card-based project grid */
+        .project-year-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            margin: 30px 0 14px;
         }
 
-        summary {
-            cursor: pointer;
-            font-size: 1.05rem;
-            font-weight: 700;
+        .project-year-label:first-of-type {
+            margin-top: 0;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 10px;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: border-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .project-card .icon {
+            width: 28px;
+            height: 28px;
             color: var(--accent);
-            letter-spacing: 0.03em;
-            padding: 4px 0;
+            flex-shrink: 0;
+        }
+
+        /* Optional: use only when an actual project image is available. */
+        .project-card .card-thumbnail {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid var(--border);
+        }
+
+        .project-card h3 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .project-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            flex: 1;
+        }
+
+        .project-card .card-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px dashed var(--border);
+            padding-top: 8px;
+        }
+
+        /* Text-list structure for research notes. */
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .note-item {
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .notes-year {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .note-item summary {
+            display: grid;
+            grid-template-columns: 72px minmax(0, 1fr) 18px;
+            align-items: baseline;
+            gap: 14px;
+            padding: 13px 0;
+            cursor: pointer;
             list-style: none;
         }
 
-        summary::-webkit-details-marker {
+        .note-item summary::-webkit-details-marker {
             display: none;
         }
 
-        summary::before {
-            content: '▸';
-            display: inline-block;
-            margin-right: 10px;
-            transition: transform 0.2s ease;
+        .note-item summary::after {
+            content: '+';
+            color: var(--accent);
+            font-size: 0.95rem;
+            text-align: right;
         }
 
-        details[open] summary::before {
-            transform: rotate(90deg);
+        .note-item[open] summary::after {
+            content: '−';
         }
 
-        .year-count {
+        .note-date {
             color: var(--text-muted);
-            font-weight: 400;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            white-space: nowrap;
         }
 
-        details .list-container {
-            margin-top: 16px;
-            padding-left: 24px;
+        .note-title {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.45;
+        }
+
+        .note-item[open] .note-title,
+        .note-item summary:hover .note-title {
+            color: var(--accent);
+        }
+
+        .note-body {
+            color: var(--text-muted);
+            margin-left: 86px;
+            padding: 0 32px 18px 0;
+            font-size: 0.88rem;
+            line-height: 1.65;
         }
 
         footer {
@@ -249,6 +344,39 @@
             display: flex;
             justify-content: space-between;
         }
+
+        @media (max-width: 560px) {
+            body {
+                padding: 24px 18px;
+            }
+
+            nav {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+                margin-bottom: 44px;
+            }
+
+            .list-item {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .item-meta {
+                white-space: normal;
+            }
+
+            .note-item summary {
+                grid-template-columns: 58px minmax(0, 1fr) 16px;
+                gap: 10px;
+            }
+
+            .note-body {
+                margin-left: 68px;
+                padding-right: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -256,15 +384,16 @@
 <div class="container">
     
     <!-- Top Nav / Lazar-style Tab buttons -->
-    <nav>
-        <button class="active" onclick="switchTab('home')">Home</button>
-        <button onclick="switchTab('bio')">Bio</button>
-        <button onclick="switchTab('project')">Project</button>
-        <button onclick="switchTab('publications')">Publications</button>
+    <nav role="tablist" aria-label="Primary navigation">
+        <button type="button" class="active" role="tab" aria-selected="true" aria-controls="home" data-tab="home" onclick="switchTab('home')">Home</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="work" data-tab="work" onclick="switchTab('work')">Work</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="notes" data-tab="notes" onclick="switchTab('notes')">Notes</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="publications" data-tab="publications" onclick="switchTab('publications')">Publications</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="about" data-tab="about" onclick="switchTab('about')">About</button>
     </nav>
 
     <!-- 1. HOME TAB (Ultra Minimalist) -->
-    <div id="home" class="tab-content active">
+    <div id="home" class="tab-content active" role="tabpanel">
         <header>
             <h1>hello, i'm minseo cho</h1>
             <div class="subtitle">hci researcher &amp; designer</div>
@@ -281,8 +410,8 @@
         </header>
     </div>
 
-    <!-- 2. BIO TAB (Education & Skills) -->
-    <div id="bio" class="tab-content">
+    <!-- ABOUT TAB (Education & Skills) -->
+    <div id="about" class="tab-content" role="tabpanel">
         <section>
             <h2>Education</h2>
             <div class="list-container">
@@ -326,130 +455,137 @@
         </section>
     </div>
 
-    <!-- 3. PROJECT TAB -->
-    <div id="project" class="tab-content">
+    <!-- WORK TAB -->
+    <div id="work" class="tab-content" role="tabpanel">
         <section>
-            <h2>Projects</h2>
+            <h2>Work</h2>
 
-            <details open>
-                <summary>2024 <span class="year-count">(5)</span></summary>
-                <div class="list-container">
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">REDI: A Digital Journaling Application for Capturing Digital Phenotypes in Adolescents with Mood Disorders</a></span>
-                            <span class="item-desc">Associated with HAII Corp. - Human AI Interaction. REDI is an android-based digital journaling application to collect digital phenotypes in adolescents. Active data (mood and lifestyle behaviors) are captured through ecological momentary assessments, while passive data (location, sleep patterns, and physical activity) are gathered unobtrusively in background.</span>
-                        </div>
-                        <div class="item-meta">Aug 2022 – Dec 2024</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">Development of Digital Therapeutic Devices for Depression, Anxiety, and Self-Harm/Suicide Prevention in Adolescents and Young Adults Using Multimodal Digital Phenotype Metadata</a></span>
-                            <span class="item-desc">Associated with Yonsei University</span>
-                        </div>
-                        <div class="item-meta">Mar 2024 – Aug 2024</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">Development of a Digital Phenotype-Based Platform for Monitoring and Intervening in the Psychological States of Children and Adolescents</a></span>
-                            <span class="item-desc">Associated with Yonsei University</span>
-                        </div>
-                        <div class="item-meta">Mar 2022 – Aug 2024</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">Experience Engineering for Companion Technologies</a></span>
-                            <span class="item-desc">Associated with Yonsei University</span>
-                        </div>
-                        <div class="item-meta">Sep 2022 – Aug 2024</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">ForMe: A Conversational Therapeutic Companion for Children with ADHD</a></span>
-                            <span class="item-desc">Associated with HAII Corp. - Human AI Interaction. ForMe is a AI-based digital companion enhancing executive function in children with ADHD. Through a series of interactive dialogues, children engage in daily routines and develop self-regulation skills.</span>
-                        </div>
-                        <div class="item-meta">Mar 2022 – Aug 2024</div>
-                    </div>
-                </div>
-            </details>
+            <div class="project-year-label">2024</div>
+            <div class="project-grid">
+                <a class="project-card" href="project-detail-template.html">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="13" y2="16"/></svg>
+                    <h3>REDI: Digital Journaling for Adolescent Mood Disorders</h3>
+                    <p>Android app collecting digital phenotypes from adolescents via active & passive data.</p>
+                    <div class="card-meta">Aug 2022 – Dec 2024 · HAII Corp.</div>
+                </a>
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="6,13 9,13 11,9 13,16 15,11 17,13 19,13"/></svg>
+                    <h3>Digital Therapeutic Devices for Depression, Anxiety & Self-Harm Prevention</h3>
+                    <p>Multimodal digital phenotype metadata for adolescents and young adults.</p>
+                    <div class="card-meta">Mar 2024 – Aug 2024 · Yonsei University</div>
+                </a>
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="20" x2="5" y2="12"/><line x1="12" y1="20" x2="12" y2="6"/><line x1="19" y1="20" x2="19" y2="15"/><line x1="3" y1="20" x2="21" y2="20"/></svg>
+                    <h3>Digital Phenotype-Based Platform for Children & Adolescents</h3>
+                    <p>Platform for monitoring & intervening in psychological states.</p>
+                    <div class="card-meta">Mar 2022 – Aug 2024 · Yonsei University</div>
+                </a>
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="12" rx="2"/><line x1="12" y1="7" x2="12" y2="3"/><circle cx="12" cy="3" r="1"/><circle cx="9" cy="13" r="1"/><circle cx="15" cy="13" r="1"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                    <h3>Experience Engineering for Companion Technologies</h3>
+                    <p>Research on experience design for AI companion technologies.</p>
+                    <div class="card-meta">Sep 2022 – Aug 2024 · Yonsei University</div>
+                </a>
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v10H9l-4 4v-4H4z"/><circle cx="9" cy="10" r="0.8" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="0.8" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="0.8" fill="currentColor" stroke="none"/></svg>
+                    <h3>ForMe: Conversational Companion for Children with ADHD</h3>
+                    <p>AI companion supporting executive function through daily dialogue.</p>
+                    <div class="card-meta">Mar 2022 – Aug 2024 · HAII Corp.</div>
+                </a>
+            </div>
 
-            <details>
-                <summary>2022 <span class="year-count">(1)</span></summary>
-                <div class="list-container">
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">Math Hero: An Interactive AI Math Game for Elementary Students</a></span>
-                            <span class="item-desc">Math Hero is an educational game helping elementary students practice math skills through interactive, self-paced learning. The game adapts to learner's level, offering personalised challenges and instant feedback.</span>
-                        </div>
-                        <div class="item-meta">Jan 2022 – Mar 2022</div>
-                    </div>
-                </div>
-            </details>
+            <div class="project-year-label">2022</div>
+            <div class="project-grid">
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg>
+                    <h3>Math Hero: Interactive AI Math Game</h3>
+                    <p>Adaptive game for personalised elementary math practice.</p>
+                    <div class="card-meta">Jan 2022 – Mar 2022</div>
+                </a>
+            </div>
 
-            <details>
-                <summary>2021 <span class="year-count">(1)</span></summary>
-                <div class="list-container">
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">Winnus: A Multisensory Mobile Guide to Wine for Beginners</a></span>
-                            <span class="item-desc">Associated with University MakeUs Challenge (UMC). Winnus is a wine recommendation platform that maps wine's taste and aroma profiles into interactive visuals. Designed for novices, the system adjusts user interactions based on their wine knowledge.</span>
-                        </div>
-                        <div class="item-meta">Aug 2021 – Dec 2021</div>
-                    </div>
-                </div>
-            </details>
+            <div class="project-year-label">2021</div>
+            <div class="project-grid">
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l-1 8a4 4 0 0 1-8 0z"/><line x1="12" y1="11" x2="12" y2="19"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                    <h3>Winnus: Multisensory Wine Guide for Beginners</h3>
+                    <p>Maps taste & aroma profiles into interactive visuals.</p>
+                    <div class="card-meta">Aug 2021 – Dec 2021 · UMC</div>
+                </a>
+            </div>
 
-            <details>
-                <summary>2020 <span class="year-count">(4)</span></summary>
-                <div class="list-container">
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">PICO: An AI-Powered Outfit Coordination Service</a></span>
-                            <span class="item-desc">Associated with SOTA Labs. PICO is a mobile application that uses AI to recognise clothing items from user photos, extract and store cutouts. The app generates personalised styling suggestions to enhance user wardrobe management and style.</span>
-                        </div>
-                        <div class="item-meta">Dec 2019 – Dec 2020</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">Recipe Player: A Curated Recipe Service for Single-Person Households</a></span>
-                            <span class="item-desc">Associated with Yonsei University. A personalised recipe recommendation service for single-person households. The system considers individual preferences and lifestyle context to suggest recipes. It also includes speech recognition for hands-free control.</span>
-                        </div>
-                        <div class="item-meta">Sep 2020 – Dec 2020</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">Sweetalk: A Video Call Application for Long-Distance Couples</a></span>
-                            <span class="item-desc">Associated with Yonsei University. Sweetalk is a video calling platform that detects users' movements and spoken words to generate emoticons, improving non-verbal communication and emotional expression for couples in long-distance relationships.</span>
-                        </div>
-                        <div class="item-meta">Mar 2020 – Jun 2020</div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">The Lighthouse: An Interactive Mood Lamp Humidifier Powered by Arduino</a></span>
-                            <span class="item-desc">Associated with Yonsei University. Arduino-powered mood lamp and humidifier shaped like a lighthouse that senses water levels and ambient light to trigger lighting and music effects. Made with eco-friendly materials for sustainability.</span>
-                        </div>
-                        <div class="item-meta">Mar 2020 – Jun 2020</div>
-                    </div>
-                </div>
-            </details>
+            <div class="project-year-label">2020</div>
+            <div class="project-grid">
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="1"/><path d="M12 5v2"/><path d="M4 14l8-6 8 6"/><line x1="4" y1="14" x2="20" y2="14"/></svg>
+                    <h3>PICO: AI-Powered Outfit Coordination Service</h3>
+                    <p>Recognises clothing from photos to suggest styling.</p>
+                    <div class="card-meta">Dec 2019 – Dec 2020 · SOTA Labs</div>
+                </a>
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 4 0 0 0 16 0"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="18" y1="6" x2="18" y2="12"/></svg>
+                    <h3>Recipe Player: Curated Recipes for Single Households</h3>
+                    <p>Personalised recipes with hands-free voice control.</p>
+                    <div class="card-meta">Sep 2020 – Dec 2020 · Yonsei University</div>
+                </a>
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="12" height="12" rx="2"/><path d="M17 9l4-2v10l-4-2z"/><path d="M9 12c-1-1-2.2-.4-2.2.8 0 1 2.2 2.7 2.2 2.7s2.2-1.7 2.2-2.7c0-1.2-1.2-1.8-2.2-.8z" fill="currentColor" stroke="none"/></svg>
+                    <h3>Sweetalk: Video Calls for Long-Distance Couples</h3>
+                    <p>Generates emoticons from movement & speech in real time.</p>
+                    <div class="card-meta">Mar 2020 – Jun 2020 · Yonsei University</div>
+                </a>
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="9,14 15,14 13,4 11,4"/><rect x="8" y="14" width="8" height="6"/><line x1="16" y1="7" x2="19" y2="6"/><line x1="16" y1="10" x2="19" y2="10"/></svg>
+                    <h3>The Lighthouse: Arduino Mood Lamp Humidifier</h3>
+                    <p>Senses water & light to trigger ambient effects.</p>
+                    <div class="card-meta">Mar 2020 – Jun 2020 · Yonsei University</div>
+                </a>
+            </div>
 
-            <details>
-                <summary>2019 <span class="year-count">(1)</span></summary>
-                <div class="list-container">
-                    <div class="list-item">
-                        <div class="item-main">
-                            <span class="item-title"><a href="#">Kiketch: Interactive Drawing Book for Early Childhood Emotional Development</a></span>
-                            <span class="item-desc">An artificial intelligence-based application to support the emotional growth of young children. As children draw to create their own narratives, the system animates them, and plays contextually appropriate sounds.</span>
-                        </div>
-                        <div class="item-meta">Jun 2019 – Nov 2019</div>
-                    </div>
-                </div>
-            </details>
+            <div class="project-year-label">2019</div>
+            <div class="project-grid">
+                <a class="project-card" href="#">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4 12-12 3 3-12 12z"/><line x1="15" y1="5" x2="18" y2="8"/></svg>
+                    <h3>Kiketch: Interactive Drawing Book for Early Childhood</h3>
+                    <p>Animates children's drawings with contextual sound.</p>
+                    <div class="card-meta">Jun 2019 – Nov 2019</div>
+                </a>
+            </div>
 
         </section>
     </div>
 
-    <!-- 4. PUBLICATIONS TAB -->
-    <div id="publications" class="tab-content">
+    <!-- NOTES TAB -->
+    <div id="notes" class="tab-content" role="tabpanel">
+        <section>
+            <h2>Notes</h2>
+            <h3 class="notes-year">2026</h3>
+            <div class="notes-list">
+                <details class="note-item">
+                    <summary>
+                        <time class="note-date" datetime="2026-08-09">09 Aug</time>
+                        <span class="note-title">on situated cognition in child–AI dialogue</span>
+                    </summary>
+                    <div class="note-body">
+                        A fragment from fieldwork — kids narrate their reasoning out loud to the agent far more than to a silent worksheet. Not sure yet if this is a novelty effect or something structural about turn-taking.
+                    </div>
+                </details>
+
+                <details class="note-item">
+                    <summary>
+                        <time class="note-date" datetime="2026-08-06">06 Aug</time>
+                        <span class="note-title">why self-report scales feel wrong for adolescents</span>
+                    </summary>
+                    <div class="note-body">
+                        Likert scales assume a stable internal reference point. Teens' self-concept shifts week to week — maybe the instrument should be the thing that adapts, not the question.
+                    </div>
+                </details>
+            </div>
+        </section>
+    </div>
+
+    <!-- PUBLICATIONS TAB -->
+    <div id="publications" class="tab-content" role="tabpanel">
         <section>
             <h2>Publications</h2>
             <div class="list-container">
@@ -539,19 +675,41 @@
 
 <!-- Tab Navigation Logic JavaScript -->
 <script>
-    function switchTab(tabId) {
+    function switchTab(tabId, updateHash = true) {
+        const target = document.getElementById(tabId);
+        if (!target) return;
+
         // Hide all tabs
         const contents = document.querySelectorAll('.tab-content');
         contents.forEach(content => content.classList.remove('active'));
-        
+
         // Remove active styling from all nav buttons
         const buttons = document.querySelectorAll('nav button');
-        buttons.forEach(button => button.classList.remove('active'));
-        
-        // Show selected tab & highlight active button
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
+        buttons.forEach(button => {
+            button.classList.remove('active');
+            button.setAttribute('aria-selected', 'false');
+        });
+
+        // Show selected tab & highlight matching nav button
+        target.classList.add('active');
+        const activeButton = document.querySelector('nav button[data-tab="' + tabId + '"]');
+        if (activeButton) {
+            activeButton.classList.add('active');
+            activeButton.setAttribute('aria-selected', 'true');
+        }
+
+        if (updateHash) {
+            history.replaceState(null, '', '#' + tabId);
+        }
     }
+
+    // If the URL has a hash like index.html#project, open that tab on load
+    window.addEventListener('DOMContentLoaded', () => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash && document.getElementById(hash)) {
+            switchTab(hash, false);
+        }
+    });
 </script>
 
 </body>
