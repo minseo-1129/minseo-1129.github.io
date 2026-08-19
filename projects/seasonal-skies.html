@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Skies — Calendar Visual System — Minseo Cho</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/project.js" defer></script>
+</head>
+<body>
+<div class="container">
+<main id="seasonal-skies-project" class="project-detail-page active" aria-labelledby="seasonal-skies-title">
+        <a class="project-back" href="../index.html#work">← Back to Work</a>
+
+        <header class="project-detail-header">
+            <div class="project-detail-kicker">Visual System · Calendar Design · 2021</div>
+            <h1 id="seasonal-skies-title">Calendar Design Based on Seasonal Skies</h1>
+            <p class="project-detail-lede">A twelve-month visual system derived from seasonal photographs of skies, clouds, streetlights, and wires.</p>
+        </header>
+
+        <div class="project-detail-hero">
+            <img class="project-hero-image" src="../assets/images/seasonal-skies/august.jpg" alt="August calendar spread in turquoise, white, and yellow" />
+        </div>
+
+        <dl class="project-facts">
+            <div>
+                <dt>Role</dt>
+                <dd>Visual designer</dd>
+            </div>
+            <div>
+                <dt>Timeline</dt>
+                <dd>Mar – Jun 2021</dd>
+            </div>
+            <div>
+                <dt>Scope</dt>
+                <dd>Grid · Colour · Illustration</dd>
+            </div>
+        </dl>
+
+        <section class="project-detail-section">
+            <h2>Design Direction</h2>
+            <p class="project-detail-copy">The calendar translates photographs into a repeatable system: streetlights and wires establish the grid, while changing skies, clouds, brightness, and saturation shape each month's seasonal identity.</p>
+
+            <div class="project-principles">
+                <div class="project-principle">
+                    <h3>Photographic grid</h3>
+                    <p>Lines observed in streetlights and wires become an organising structure for type and illustration.</p>
+                </div>
+                <div class="project-principle">
+                    <h3>Seasonal colour</h3>
+                    <p>Four main palettes mark the seasons, with a distinct accent creating variation month by month.</p>
+                </div>
+                <div class="project-principle">
+                    <h3>Typographic contrast</h3>
+                    <p>Display serif month names are paired with restrained sans-serif dates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-detail-section">
+            <h2>Selected Month</h2>
+            <div class="project-gallery">
+                <button type="button" class="project-gallery-item" onclick="openLightbox(this.querySelector('img'))" aria-label="View the February calendar spread at full size">
+                    <img src="../assets/images/seasonal-skies/february.jpg" alt="February calendar spread in red, white, and black" loading="lazy" />
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer><span>© 2026 Minseo</span></footer>
+</div>
+
+<dialog id="project-lightbox" class="project-lightbox" onclick="if (event.target === this) closeLightbox()">
+    <button type="button" class="project-lightbox-close" onclick="closeLightbox()" aria-label="Close full-size image">×</button>
+    <img id="project-lightbox-image" src="" alt="">
+</dialog>
+</body>
+</html>
