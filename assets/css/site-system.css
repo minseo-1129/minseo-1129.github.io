@@ -37,6 +37,7 @@ nav button,
 .project-detail-kicker,
 .project-facts,
 .project-principle h3,
+.fragment-status,
 footer {
   font-family: var(--font-mono);
 }
@@ -91,27 +92,44 @@ p.intro,
   letter-spacing: var(--type-section-tracking);
 }
 
+/* Shared item-title role: Publication / Education / Research / Design. */
 .item-title {
   color: var(--text-main);
-  font-family: var(--font-body);
-  font-size: var(--type-body-size);
-  font-weight: var(--weight-medium);
+  font: var(--weight-medium) var(--type-item-title-size)/var(--type-item-title-leading) var(--font-mono);
 }
 
 .item-author,
+.item-venue,
 .item-desc,
 .project-card p,
-.project-principle p,
-.fragment-status {
+.project-principle p {
   font-family: var(--font-body);
 }
 
-.item-author { font-size: var(--type-ui-size); }
+.item-author {
+  font-size: var(--type-secondary-size);
+  line-height: var(--type-secondary-leading);
+}
+
 .item-author strong { font-weight: var(--weight-medium); }
-.item-desc { font-size: var(--type-small-size); line-height: var(--type-small-leading); }
+
+.item-venue {
+  font-size: var(--type-secondary-size);
+  line-height: var(--type-secondary-leading);
+  font-style: italic;
+}
+
+.item-desc {
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-leading);
+}
 
 .item-meta {
-  font: var(--weight-regular) var(--type-ui-size)/var(--type-ui-leading) var(--font-mono);
+  font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
+}
+
+.fragment-status {
+  font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
 }
 
 .skills-grid { gap: 8px; }
@@ -124,12 +142,16 @@ p.intro,
   font: var(--weight-regular) var(--type-ui-size)/1.2 var(--font-mono);
 }
 
+.project-year-label {
+  font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
+}
+
 .project-card {
   border-radius: var(--radius);
 }
 
 .project-card h3 {
-  font: var(--weight-medium) var(--type-subheading-size)/var(--type-subheading-leading) var(--font-mono);
+  font: var(--weight-medium) var(--type-item-title-size)/var(--type-item-title-leading) var(--font-mono);
 }
 
 .project-card p {
@@ -138,7 +160,7 @@ p.intro,
 }
 
 .project-card .card-meta {
-  font: var(--weight-regular) var(--type-micro-size)/var(--type-micro-leading) var(--font-mono);
+  font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
 }
 
 .project-back,
@@ -205,7 +227,7 @@ footer {
 
   .list-container { gap: 21px; }
 
-  /* Keep education dates visible without stretching every row vertically. */
+  /* Keep education dates visible without shrinking the shared metadata tier. */
   .list-item {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -217,8 +239,8 @@ footer {
     max-width: 92px;
     white-space: normal;
     text-align: right;
-    font-size: var(--type-micro-size);
-    line-height: 1.45;
+    font-size: var(--type-secondary-size);
+    line-height: var(--type-secondary-leading);
   }
 
   .project-facts,

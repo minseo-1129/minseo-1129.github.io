@@ -56,6 +56,9 @@
   --type-subheading-size: 13px;
   --type-subheading-leading: 1.45;
 
+  --type-item-title-size: 14px;
+  --type-item-title-leading: 1.45;
+
   --type-lead-size: 16.5px;
   --type-lead-leading: 1.62;
 
@@ -64,6 +67,9 @@
 
   --type-small-size: 14px;
   --type-small-leading: 1.52;
+
+  --type-secondary-size: 12px;
+  --type-secondary-leading: 1.50;
 
   --type-ui-size: 12px;
   --type-ui-leading: 1.42;
