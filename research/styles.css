@@ -21,7 +21,7 @@
       --type-small: 0.875rem;   /* 14px — infographic support text */
       --type-body: 1rem;        /* 16px — long-form reading */
       --type-lead: 1.125rem;    /* 18px — section lead */
-      --type-callout: 1.125rem; /* 18px — RQ / takeaway */
+      --type-callout: 1rem;     /* 16px — RQ / takeaway */
       --type-metric: 1.5rem;    /* 24px — result numbers */
       --type-title: clamp(1.5rem, 2.3vw, 1.8rem); /* 24–28.8px */
     }
@@ -56,7 +56,7 @@
       color: var(--text-muted);
       font-family: var(--font-mono);
       font-size: var(--type-ui);
-      margin-bottom: 72px;
+      margin-bottom: 48px;
     }
     .topline a { border-bottom: 0; }
 
@@ -91,14 +91,14 @@
       line-height: 1.18;
       letter-spacing: -.045em;
       font-weight: 600;
-      max-width: 650px;
+      max-width: 640px;
       margin-bottom: 18px;
     }
 
     .lede {
       color: var(--text-muted);
       font-family: var(--font-body);
-      font-size: var(--type-body);
+      font-size: 0.92rem;
       line-height: 1.72;
       max-width: 610px;
     }
@@ -188,9 +188,17 @@
       font-size: var(--type-body);
       line-height: 1.78;
     }
-    .copy p { color: var(--text-muted); margin-bottom: 18px; max-width: 640px; }
+    .copy p { 
+      color: var(--text-muted); 
+      margin-bottom: 18px; 
+      max-width: 640px; 
+    }
     .copy p:last-child { margin-bottom: 0; }
-    .copy p.lead { color: var(--text-main); font-size: var(--type-lead); line-height: 1.72; }
+    .copy p.lead { 
+      color: var(--text-main); 
+      font-size: var(--type-lead); 
+      line-height: 1.72; 
+    }
 
     /*
       Vertical rhythm:
