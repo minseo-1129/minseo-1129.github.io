@@ -77,12 +77,12 @@
     text-transform: uppercase;
 }
 
+/* Programme question = contextual framing, not structural metadata. */
 .toc-chapter-q {
     margin: 7px 0 0;
     max-width: 26ch;
     color: var(--toc-ink-soft);
-    font: var(--weight-regular) var(--type-ui-size)/1.5 var(--font-body);
-    font-style: normal;
+    font: italic var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-body);
 }
 
 .toc-entries {
@@ -110,16 +110,17 @@
 
 .toc-entry-num {
     color: var(--toc-ink-soft);
-    font: var(--weight-regular) var(--type-ui-size)/1.45 var(--font-mono);
+    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
     letter-spacing: 0;
     white-space: nowrap;
 }
 
+/* Shared item-title role: Mono 500 / 14px / normal case. */
 .toc-entry-title {
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-small-size)/1.45 var(--font-mono);
+    font: var(--weight-medium) var(--type-item-title-size)/var(--type-item-title-leading) var(--font-mono);
     letter-spacing: 0;
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .toc-entry:hover,
@@ -204,8 +205,8 @@
         margin-top: 7px;
         max-width: none;
         width: 100%;
-        font-size: var(--type-ui-size);
-        line-height: 1.5;
+        font-size: var(--type-secondary-size);
+        line-height: var(--type-secondary-leading);
     }
 
     .toc-entries {
@@ -225,13 +226,13 @@
     .toc-entry:first-child { padding-top: 0; }
 
     .toc-entry-num {
-        font-size: var(--type-ui-size);
-        line-height: 1.45;
+        font-size: var(--type-secondary-size);
+        line-height: var(--type-secondary-leading);
     }
 
     .toc-entry-title {
-        font-size: var(--type-ui-size);
-        line-height: 1.5;
+        font-size: var(--type-item-title-size);
+        line-height: var(--type-item-title-leading);
         overflow-wrap: anywhere;
     }
 
