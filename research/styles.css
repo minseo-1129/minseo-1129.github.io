@@ -1,7 +1,6 @@
 @import url("../assets/css/tokens.css");
 :root {
-  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-body: "SUSE", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  /* Research infographic palette */
   --paper: #ffffff;
   --paper-text: #0f172a;
   --paper-muted: #64748b;
@@ -9,6 +8,8 @@
   --paper-accent: #0369a1;
   --paper-track: #eef2f7;
   --paper-band: #bae6fd;
+
+  /* Research case-study layout */
   --page: 1040px;
   --rail: 188px;
   --reading: 650px;
@@ -58,6 +59,7 @@ a:hover {
   color: var(--text-muted);
   font-family: var(--font-mono);
   font-size: var(--type-ui);
+  line-height: 1.6;
   margin-bottom: 60px;
 }
 
@@ -105,9 +107,9 @@ h1 {
   font-family: var(--font-mono);
   font-size: var(--type-title);
   line-height: var(--leading-title);
-  letter-spacing: -.045em;
-  font-weight: 600;
-  max-width: 650px;
+  letter-spacing: 0;
+  font-weight: 700;
+  max-width: 640px;
   margin-bottom: 18px;
 }
 
