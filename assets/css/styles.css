@@ -511,7 +511,7 @@
             }
 
             .project-detail-hero {
-                margin: 26px 0;
+                margin: var(--space-hero) 0;
             }
 
             .project-gallery--identity {
