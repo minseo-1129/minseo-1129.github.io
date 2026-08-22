@@ -81,18 +81,20 @@
 }
 
 /* Programme title */
+/* Programme title */
 .toc-chapter-title h3 {
     margin: 0;
 
     font-family: var(--font-body);
-    font-size: var(--type-small);   /* 14px */
-    font-weight: 600;
-    line-height: 1.35;
+    font-size: var(--type-body);
+    font-weight: 700;
+    line-height: 1.3;
 
     letter-spacing: 0.01em;
     text-transform: uppercase;
 }
 
+/* Programme research question */
 .toc-chapter-q {
     margin: 8px 0 0;
     max-width: 26ch;
@@ -100,7 +102,7 @@
     color: var(--toc-ink-soft);
 
     font-family: var(--font-body);
-    font-size: var(--type-ui);      /* 12px */
+    font-size: var(--type-ui);
     font-weight: 400;
     font-style: italic;
     line-height: 1.5;
