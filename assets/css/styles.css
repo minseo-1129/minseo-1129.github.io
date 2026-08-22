@@ -530,8 +530,9 @@
   padding: 14px 0;
 }
 
-/* Research index: programme column + project-list column.
-   The programme acts like a contents-section label; projects sit beside it. */
+/* Research index: contents-style programme column + project-list column.
+   Programme identity stays in the left column; each project keeps
+   code + title on one row and its summary directly below the title. */
         .research-intro {
             color: var(--text-muted);
             font-size: var(--type-body);
@@ -542,11 +543,11 @@
 
         .research-program {
             display: grid;
-            grid-template-columns: 190px minmax(0, 1fr);
-            column-gap: 30px;
+            grid-template-columns: 170px minmax(0, 1fr);
+            column-gap: 32px;
             align-items: start;
-            margin-top: 46px;
-            padding-top: 14px;
+            margin-top: 42px;
+            padding-top: 18px;
             border-top: 1px dashed var(--border);
         }
 
@@ -555,37 +556,44 @@
         }
 
         .research-program-head {
-            padding-top: 3px;
+            grid-column: 1;
+            grid-row: 1;
+            display: block;
+            min-width: 0;
+            padding-right: 10px;
         }
 
         .research-program-head > span {
             display: block;
-            color: var(--accent);
-            font-size: var(--type-ui);
-            line-height: 1.5;
-            letter-spacing: 0.045em;
+            color: var(--text-main);
+            font-size: var(--type-body);
+            font-weight: 600;
+            line-height: 1.35;
+            letter-spacing: 0;
         }
 
         .research-program-head small {
             display: block;
             color: var(--text-muted);
             font-size: var(--type-micro);
-            line-height: 1.55;
-            margin-top: 6px;
-            max-width: 170px;
+            line-height: 1.5;
+            margin-top: 8px;
+            max-width: 155px;
         }
 
         .research-index-list {
+            grid-column: 2;
+            grid-row: 1;
             min-width: 0;
         }
 
         .research-index-item {
             display: grid;
-            grid-template-columns: 52px minmax(0, 1fr);
+            grid-template-columns: 48px minmax(0, 1fr);
             column-gap: 16px;
             align-items: start;
-            padding: 0 0 16px;
-            margin-bottom: 16px;
+            padding: 0 0 18px;
+            margin-bottom: 18px;
             border-bottom: 1px dashed var(--border);
         }
 
@@ -608,20 +616,22 @@
 
         .research-item-title {
             grid-column: 2;
+            grid-row: 1;
             color: var(--text-main);
-            font-size: var(--type-body);
+            font-size: var(--type-small);
             line-height: 1.45;
             font-weight: 600;
         }
 
         .research-item-summary {
             grid-column: 2;
+            grid-row: 2;
             display: block;
             color: var(--text-muted);
             font-size: var(--type-ui);
             line-height: 1.5;
             margin-top: 5px;
-            max-width: 520px;
+            max-width: 430px;
         }
 
         .research-index-item:hover .research-item-title {
@@ -631,8 +641,14 @@
         @media (max-width: 700px) {
             .research-program {
                 grid-template-columns: 1fr;
-                row-gap: 16px;
-                padding-top: 12px;
+                row-gap: 18px;
+                padding-top: 14px;
+            }
+
+            .research-program-head,
+            .research-index-list {
+                grid-column: 1;
+                grid-row: auto;
             }
 
             .research-program-head small {
@@ -653,35 +669,5 @@
             border-color: var(--border);
             transform: none;
             color: var(--text-main);
-        }
-
-        @media (max-width: 700px) {
-            .research-program-head,
-            .research-index-item {
-                grid-template-columns: 44px minmax(0, 1fr);
-                column-gap: 12px;
-            }
-
-            .research-program-head > span {
-                grid-column: 1 / -1;
-            }
-
-            .research-program-head small {
-                grid-column: 1 / -1;
-                margin-top: 4px;
-            }
-
-            .research-code {
-                grid-column: 1;
-            }
-
-            .research-item-title,
-            .research-item-summary {
-                grid-column: 2;
-            }
-
-            .research-item-summary {
-                margin-top: 4px;
-            }
         }
 
