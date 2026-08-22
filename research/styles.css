@@ -79,8 +79,9 @@
     .kicker {
       color: var(--accent);
       font-family: var(--font-mono);
-      font-size: var(--type-ui);
-      letter-spacing: .075em;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: .05em;
       text-transform: uppercase;
       margin-bottom: 14px;
     }
