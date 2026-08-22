@@ -27,6 +27,8 @@ nav,
 nav button,
 .tab-topline,
 .subtitle,
+.socials,
+.socials a,
 .item-meta,
 .project-year-label,
 .project-card h3,
@@ -67,6 +69,10 @@ nav button { font-weight: var(--weight-regular); }
   letter-spacing: .06em;
 }
 
+.socials {
+  font: var(--weight-regular) var(--type-ui-size)/var(--type-ui-leading) var(--font-mono);
+}
+
 p.intro,
 .project-detail-lede,
 .project-detail-copy {
@@ -78,7 +84,8 @@ p.intro,
 
 #about h2,
 #publications h2,
-#design h2 {
+#design h2,
+.project-detail-page h2 {
   color: var(--accent-strong);
   font: var(--weight-medium) var(--type-section-size)/var(--type-section-leading) var(--font-mono);
   letter-spacing: var(--type-section-tracking);
