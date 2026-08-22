@@ -303,7 +303,7 @@
 
         .project-detail-page h1 {
             font-size: var(--type-title);
-            line-height: 1.18;
+            line-height: var(--leading-title);
             margin-bottom: 18px;
             max-width: 640px;
         }
@@ -312,7 +312,7 @@
         .project-detail-copy {
             color: var(--text-muted);
             font-size: var(--type-body);
-            line-height: 1.75;
+            line-height: var(--leading-body);
             max-width: 610px;
         }
 
