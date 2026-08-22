@@ -50,7 +50,7 @@
 .toc-chapter {
     display: grid;
     grid-template-columns: 44px 210px minmax(0, 1fr);
-    column-gap: 22px;
+    column-gap: 16px;
     align-items: start;
     border-top: 1px solid var(--toc-rule);
     padding-top: 22px;
@@ -108,9 +108,10 @@
     border-top: 0;
 }
 
+/* Study ID and title share one typographic tier; colour keeps the locator secondary. */
 .toc-entry-num {
     color: var(--toc-ink-soft);
-    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
+    font: var(--weight-medium) var(--type-item-title-size)/var(--type-item-title-leading) var(--font-mono);
     letter-spacing: 0;
     white-space: nowrap;
 }
@@ -145,7 +146,7 @@
     display: flex;
     justify-content: space-between;
     gap: 16px;
-    margin-top: 44px;
+    margin-top: 32px;
     padding-top: 16px;
     border-top: 1px solid var(--toc-rule);
     color: var(--toc-ink-soft);
@@ -217,7 +218,7 @@
     }
 
     .toc-entry {
-        grid-template-columns: 48px minmax(0, 1fr);
+        grid-template-columns: 54px minmax(0, 1fr);
         gap: 10px;
         align-items: start;
         padding: 13px 0;
@@ -225,20 +226,17 @@
 
     .toc-entry:first-child { padding-top: 0; }
 
-    .toc-entry-num {
-        font-size: var(--type-secondary-size);
-        line-height: var(--type-secondary-leading);
-    }
-
+    .toc-entry-num,
     .toc-entry-title {
         font-size: var(--type-item-title-size);
         line-height: var(--type-item-title-leading);
-        overflow-wrap: anywhere;
     }
+
+    .toc-entry-title { overflow-wrap: anywhere; }
 
     .toc-footer {
         flex-direction: column;
         gap: 5px;
-        margin-top: 39px;
+        margin-top: 32px;
     }
 }
