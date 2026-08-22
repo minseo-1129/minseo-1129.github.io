@@ -65,8 +65,3 @@ python3 -m http.server 8000
 ```
 
 Then visit `http://localhost:8000`.
-
-## Before publishing
-
-Add a real email address to the Home tab if you want an email contact link.
-Add publication URLs as they become available.
