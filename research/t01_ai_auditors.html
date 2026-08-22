@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="T-01 — Calibrating AI Auditors Before Trusting Their Judgements" name="description"/>
+  <title>
+   T-01 — Calibrating AI Auditors Before Trusting Their Judgements
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&amp;family=SUSE:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <main class="case-shell">
+   <nav aria-label="Project navigation" class="topline">
+    <a href="../index.html#research">
+     ← research
+    </a>
+    <span class="id">
+     T-01 · AI Evaluation / Red Teaming · 2026
+    </span>
+   </nav>
+   <div class="body-aligned">
+    <aside class="rail hero-rail">
+     <span class="index">
+      File
+     </span>
+     <h2>
+      T–01
+     </h2>
+    </aside>
+    <header class="case-header">
+     <div class="kicker">
+      AI Evaluation / Red Teaming
+     </div>
+     <h1>
+      Calibrating AI Auditors Before Trusting Their Judgements
+     </h1>
+     <p class="lede">
+      If LLMs are used to evaluate other AI systems, the evaluator itself first becomes a measurement-design problem.
+     </p>
+     <dl class="facts">
+      <div>
+       <dt>
+        Period
+       </dt>
+       <dd>
+        Feb 2026 – Aug 2026
+       </dd>
+      </div>
+      <div>
+       <dt>
+        Type
+       </dt>
+       <dd>
+        AI Evaluation · LLM-as-Judge · Self-Determination Theory
+       </dd>
+      </div>
+      <div>
+       <dt>
+        Evaluation set
+       </dt>
+       <dd>
+        30 human participants · 30 synthetic users
+       </dd>
+      </div>
+     </dl>
+    </header>
+   </div>
+   <div class="body-aligned question-wrap">
+    <aside class="research-question">
+     <span class="label">
+      Research question
+     </span>
+     <p>
+      How can synthetic users and AI auditors be calibrated against human participants before we rely on them for pre-deployment evaluation?
+     </p>
+    </aside>
+   </div>
+   <section class="case-section">
+    <aside class="rail">
+     <span class="index">
+      01 / risk
+     </span>
+     <h2>
+      Before giving AI to young people
+     </h2>
+    </aside>
+    <div class="copy">
+     <p class="lead">
+      A psychologically sensitive conversational system creates an uncomfortable evaluation problem: discovering a failure through repeated exposure can itself place vulnerable participants at risk.
+     </p>
+     <p>
+      Technical testing is necessary, but it cannot tell us whether an interaction makes someone feel controlled, incapable, misunderstood, dismissed, or pushed toward action before they are ready.
+     </p>
+     <div class="flowline">
+      <div class="flow-node">
+       <strong>
+        Synthetic user
+       </strong>
+       <span>
+        Encounter experimental agent variants
+       </span>
+      </div>
+      <div class="flow-node">
+       <strong>
+        AI auditor
+       </strong>
+       <span>
+        Estimate psychological need support / frustration
+       </span>
+      </div>
+      <div class="flow-node">
+       <strong>
+        Human benchmark
+       </strong>
+       <span>
+        Calibrate whether synthetic judgement is close enough to trust
+       </span>
+      </div>
+     </div>
+     <p>
+      The aim was not to replace human evaluation. Thirty human participants remained the benchmark, with 30 synthetic AI users used to test how closely the synthetic evaluation could be calibrated to human judgements.
+     </p>
+    </div>
+   </section>
+   <section class="case-section">
+    <aside class="rail">
+     <span class="index">
+      02 / persona
+     </span>
+     <h2>
+      Encode causes, not conclusions
+     </h2>
+    </aside>
+    <div class="copy">
+     <p>
+      A synthetic persona can accidentally contain the answer to the outcome we later ask it to evaluate. If a profile explicitly says that a person dislikes being told what to do, then asking whether an agent supported their autonomy risks prompting the result rather than simulating it.
+     </p>
+     <div class="quote-pair">
+      <div>
+       <div class="tag">
+        Avoid
+       </div>
+       <p>
+        Persona statements that directly encode the psychological judgement being measured.
+       </p>
+      </div>
+      <div>
+       <div class="tag">
+        Prefer
+       </div>
+       <p>
+        Upstream characteristics—everyday context, symptoms, emotion regulation, dispositions, self-efficacy, and stress—that may influence the experience.
+       </p>
+      </div>
+     </div>
+     <p>
+      A synthetic user should contain conditions that may shape an outcome. It should not contain the outcome we are trying to predict.
+     </p>
+    </div>
+   </section>
+   <section class="case-section">
+    <aside class="rail">
+     <span class="index">
+      03 / calibration
+     </span>
+     <h2>
+      The evaluator is part of the measurement design
+     </h2>
+    </aside>
+    <div class="copy">
+     <p class="lead">
+      The observed judgement changed when we changed how the evaluation was framed.
+     </p>
+     <div class="paper-grid two">
+      <div class="paper-cell">
+       <span class="tag">
+        Measurement level
+       </span>
+       <strong>
+        Behaviour → task
+       </strong>
+       <p>
+        Task-level judgement reduced aggregate error relative to judging broader behaviour-level constructs.
+       </p>
+      </div>
+      <div class="paper-cell">
+       <span class="tag">
+        Perspective
+       </span>
+       <strong>
+        Third person → first person
+       </strong>
+       <p>
+        Asking the synthetic participant to report its own experience brought estimates closer to the human benchmark.
+       </p>
+      </div>
+      <div class="paper-cell">
+       <span class="tag">
+        Context
+       </span>
+       <strong>
+        Thin → situated
+       </strong>
+       <p>
+        Context improved first-person evaluation across autonomy, competence, and relatedness dimensions.
+       </p>
+      </div>
+      <div class="paper-cell">
+       <span class="tag">
+        Evaluator
+       </span>
+       <strong>
+        Generator → stronger reasoner
+       </strong>
+       <p>
+        A stronger evaluation model moved closer to the human benchmark than simply reusing the conversational model.
+       </p>
+      </div>
+     </div>
+     <p>
+      The implication is methodological: an AI auditor is not a neutral ruler. Perspective, abstraction, context, and model capability all affect what it measures.
+     </p>
+    </div>
+   </section>
+   <section class="case-section">
+    <aside class="rail">
+     <span class="index">
+      04 / instrument
+     </span>
+     <h2>
+      Synthetic user as an experimental instrument
+     </h2>
+    </aside>
+    <div class="copy">
+     <p>
+      The iterations changed the role of the synthetic user. It is less useful to think of it as a fixed artificial person and more useful to think of the whole configuration as a measurement instrument.
+     </p>
+     <div class="formula">
+      <strong>
+       Synthetic response
+      </strong>
+      = Person × Context × Measurement × Model
+     </div>
+     <p>
+      Who the persona is matters, but so does the situation, the question, the abstraction level, the perspective from which it is answered, and the model that performs the reasoning.
+     </p>
+     <p>
+      That is why calibration matters: changing any one part can change the synthetic “participant” we think we are observing.
+     </p>
+    </div>
+   </section>
+   <section class="case-section">
+    <aside class="rail">
+     <span class="index">
+      05 / benchmark
+     </span>
+     <h2>
+      How close could the final configuration get?
+     </h2>
+    </aside>
+    <div class="copy">
+     <p>
+      The final synthetic configuration was compared with mean METUX ratings from the 30 human participants.
+     </p>
+     <table class="mini-table">
+      <thead>
+       <tr>
+        <th scope="col">
+         Dimension
+        </th>
+        <th class="num" scope="col">
+         Human
+        </th>
+        <th class="num" scope="col">
+         Synthetic
+        </th>
+        <th class="num" scope="col">
+         Absolute gap
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         Autonomy frustration
+        </td>
+        <td class="num">
+         1.36
+        </td>
+        <td class="num">
+         1.28
+        </td>
+        <td class="sig num">
+         0.08
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Autonomy support
+        </td>
+        <td class="num">
+         5.30
+        </td>
+        <td class="num">
+         5.29
+        </td>
+        <td class="sig num">
+         0.01
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Competence frustration
+        </td>
+        <td class="num">
+         1.69
+        </td>
+        <td class="num">
+         1.81
+        </td>
+        <td class="sig num">
+         0.12
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Competence support
+        </td>
+        <td class="num">
+         5.54
+        </td>
+        <td class="num">
+         5.38
+        </td>
+        <td class="sig num">
+         0.16
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Relatedness frustration
+        </td>
+        <td class="num">
+         2.04
+        </td>
+        <td class="num">
+         1.53
+        </td>
+        <td class="num">
+         0.51
+        </td>
+       </tr>
+       <tr>
+        <td>
+         Relatedness support
+        </td>
+        <td class="num">
+         4.26
+        </td>
+        <td class="num">
+         3.62
+        </td>
+        <td class="num">
+         0.64
+        </td>
+       </tr>
+      </tbody>
+     </table>
+     <p>
+      Autonomy and competence became strikingly close. Relatedness remained much harder to reproduce.
+     </p>
+    </div>
+   </section>
+   <section class="case-section">
+    <aside class="rail">
+     <span class="index">
+      06 / boundary
+     </span>
+     <h2>
+      A mismatch can define the boundary of trust
+     </h2>
+    </aside>
+    <div class="copy">
+     <p class="lead">
+      The remaining error around relatedness is not simply a failed metric. It identifies where synthetic evaluation may not yet be trustworthy enough.
+     </p>
+     <p>
+      Autonomy and competence leave substantial evidence in the observable interaction: options offered, control over direction, organisation of a problem, or clarity about a next step. Relatedness can depend more strongly on whether somebody felt cared for, connected, or personally understood.
+     </p>
+     <div class="quote-pair">
+      <div>
+       <div class="tag">
+        Use synthetic evaluation for
+       </div>
+       <p>
+        Repeated pre-deployment testing, surfacing likely failure modes, and comparing experimental configurations.
+       </p>
+      </div>
+      <div>
+       <div class="tag">
+        Keep humans essential for
+       </div>
+       <p>
+        Constructs and experiences that synthetic evaluation cannot reproduce with acceptable calibration.
+       </p>
+      </div>
+     </div>
+     <p>
+      The goal is therefore not “Can AI replace participants?” It is “What psychological failures can we surface before a vulnerable participant encounters the system?”
+     </p>
+    </div>
+   </section>
+   <div class="body-aligned takeaway-wrap">
+    <aside class="takeaway">
+     <span class="label">
+      Design takeaway
+     </span>
+     <p>
+      Synthetic evaluation should not be trusted because it looks human-like. It should be trusted only to the extent that it has been calibrated against humans.
+     </p>
+    </aside>
+   </div>
+   <div class="body-aligned next-wrap">
+    <a class="next" href="../index.html#research">
+     <span>
+      T-01 · AI Evaluation / Red Teaming
+     </span>
+     <span>
+      Next → Research index
+     </span>
+    </a>
+   </div>
+  </main>
+ </body>
+</html>
