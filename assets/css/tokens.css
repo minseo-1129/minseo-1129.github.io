@@ -1,44 +1,121 @@
-/* Shared design tokens — single source of truth for the site's palette,
-   typography and reading rhythm.
+/* Shared design tokens — single source of truth for the portfolio.
+   Baseline v1: typography, surfaces, line grammar and responsive states.
 
-   Palette reference:
-   - muted blue-violet ink from the supplied Morsel reference (#9093bb)
-   - cool off-white / white surfaces from the supplied references
-   - dark neutral ink for text
-
-   The palette is intentionally fixed rather than switching with the OS colour
-   scheme, so the site does not unexpectedly change appearance. */
+   Visual grammar:
+   - horizontal rules = structured information
+   - bordered boxes = independent units
+   - neutral soft fill = sequence / process
+   - lavender = takeaway / semantic emphasis
+   - solid rules = information boundaries
+   - dashed rules = narrative transitions
+*/
 
 :root {
-  /* Unified editorial palette */
-  --bg: #f6f7f8;
-  --surface: #fefefe;
-  --surface-strong: #ffffff;
+  /* Typography families */
+  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-body: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
+  --weight-regular: 400;
+  --weight-medium: 500;
+
+  /* Page + surfaces */
+  --bg: #ffffff;
+  --surface: #f6f7f8;
+  --surface-strong: #ffffff;
+  --soft: #f6f7f8;
+  --takeaway-soft: #f2f1f8;
+
+  /* Text */
   --text-main: #20232a;
   --text-muted: #646a79;
 
+  /* Accent */
   --accent: #9093bb;
   --accent-strong: #777ba8;
-  --accent-soft: #d9dbea;
+  --accent-soft: #d9dbea; /* compatibility / analytical accent band */
 
+  /* Lines + tracks */
   --border: #dfe2e8;
+  --border-strong: #cfd3dc;
   --track: #eef0f4;
 
-  /* Unified type grammar */
-  --type-micro: 0.6875rem;  /* 11px — labels / captions */
-  --type-ui: 0.75rem;       /* 12px — navigation / metadata */
-  --type-small: 0.875rem;   /* 14px — support text */
-  --type-body: 0.9375rem;   /* 15px — long-form reading */
-  --type-lead: 1rem;        /* 16px — section lead */
-  --type-callout: 1rem;     /* 16px — RQ / takeaway */
-  --type-metric: 1.5rem;    /* 24px — result numbers */
-  --type-title: clamp(1.5rem, 2.3vw, 1.8rem); /* 24–28.8px */
+  /* Radius */
+  --radius: 7px;
 
-  /* Unified reading rhythm */
-  --leading-title: 1.18;
-  --leading-body: 1.75;
-  --leading-lead: 1.7;
-  --leading-callout: 1.65;
-  --leading-small: 1.5;
+  /* Type roles — desktop / wide */
+  --type-display-size: 28px;
+  --type-display-leading: 1.20;
+  --type-display-tracking: -0.025em;
+
+  --type-section-size: 14px;
+  --type-section-leading: 1.40;
+  --type-section-tracking: -0.01em;
+
+  --type-subheading-size: 13px;
+  --type-subheading-leading: 1.45;
+
+  --type-lead-size: 16.5px;
+  --type-lead-leading: 1.62;
+
+  --type-body-size: 15.5px;
+  --type-body-leading: 1.64;
+
+  --type-small-size: 14px;
+  --type-small-leading: 1.52;
+
+  --type-ui-size: 12px;
+  --type-ui-leading: 1.42;
+
+  --type-micro-size: 11px;
+  --type-micro-leading: 1.38;
+  --type-micro-tracking: 0.01em;
+
+  --type-metric-size: 24px;
+  --type-metric-leading: 1.20;
+  --type-metric-tracking: -0.02em;
+
+  /* Component rhythm */
+  --component-gap: 12px;
+  --inner-gap: 9px;
+
+  --balanced-x: 18px;
+  --balanced-y: 18px;
+
+  --airy-x: 22px;
+  --airy-y: 22px;
+  --airy-row-x: 15px;
+  --airy-row-y: 14px;
+
+  /* Responsive state boundaries */
+  --breakpoint-compact: 720px;
+  --breakpoint-medium: 900px;
+
+  /* ------------------------------------------------------------------
+     Compatibility aliases used by the current code during migration.
+     These let us migrate HTML/CSS incrementally without breaking pages.
+     ------------------------------------------------------------------ */
+  --type-micro: var(--type-micro-size);
+  --type-ui: var(--type-ui-size);
+  --type-small: var(--type-small-size);
+  --type-body: var(--type-body-size);
+  --type-lead: var(--type-lead-size);
+  --type-callout: var(--type-lead-size);
+  --type-metric: var(--type-metric-size);
+  --type-title: var(--type-display-size);
+
+  --leading-title: var(--type-display-leading);
+  --leading-body: var(--type-body-leading);
+  --leading-lead: var(--type-lead-leading);
+  --leading-callout: var(--type-lead-leading);
+  --leading-small: var(--type-small-leading);
+}
+
+@media (max-width: 720px) {
+  :root {
+    --type-display-size: 25px;
+    --type-lead-size: 15.5px;
+    --type-body-size: 15.5px;
+    --type-small-size: 13.5px;
+    --type-metric-size: 22px;
+  }
 }
