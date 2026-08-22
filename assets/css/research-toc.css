@@ -57,19 +57,17 @@
     display: grid;
     grid-template-columns: 34px 176px minmax(0, 1fr);
     column-gap: 30px;
+    align-items: start;
+
     border-top: 1px solid var(--toc-rule);
     padding-top: 22px;
     margin-top: 30px;
 }
 
-.toc-list .toc-chapter:first-child {
-    margin-top: 0;
-}
-
 .toc-chapter-num {
     grid-column: 1;
-    grid-row: 1 / -1;
     align-self: start;
+
     font-family: var(--font-mono);
     font-weight: 700;
     font-size: 1.375rem;
@@ -79,57 +77,31 @@
 
 .toc-chapter-title {
     grid-column: 2;
-    grid-row: 1 / -1;
     align-self: start;
 }
 
-.toc-chapter-title h3 {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.9375rem;
-    line-height: 1.3;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
-    margin: 0;
-}
-
-.toc-chapter-q {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: 0.75rem;
-    line-height: 1.5;
-    color: var(--toc-ink-soft);
-    margin: 8px 0 0;
-    max-width: 26ch;
+.toc-entries {
+    min-width: 0;
 }
 
 .toc-entry {
-    grid-column: 3;
     display: grid;
     grid-template-columns: 64px minmax(0, 1fr);
     column-gap: 18px;
     align-items: baseline;
+
     padding: 14px 0;
+
     border-top: 1px solid var(--toc-rule);
-    border-bottom: none; /* overrides the site-wide dashed a{} underline */
+    border-bottom: none !important;
+
     text-decoration: none;
     color: inherit;
 }
 
-.toc-entry:hover,
-.toc-entry:focus-visible {
-    border-bottom: none !important;
-}
-
-
-.toc-entry--first,
-.toc-entry--first:hover,
-.toc-entry--first:focus-visible {
-    border-top: none;
-}
-
-.toc-entry--first {
+.toc-entry:first-child {
     padding-top: 2px;
+    border-top: none;
 }
 
 .toc-entry-num {
@@ -148,17 +120,16 @@
     line-height: 1.45;
     text-transform: uppercase;
     color: var(--toc-ink);
-    transition: color 0.15s ease;
 }
 
+.toc-entry:hover,
+.toc-entry:focus-visible {
+    border-bottom: none !important;
+}
 
 .toc-entry:hover .toc-entry-title,
 .toc-entry:focus-visible .toc-entry-title {
     color: var(--toc-accent);
-}
-
-.toc-entry:hover .toc-entry-title,
-.toc-entry:focus-visible .toc-entry-title {
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;
