@@ -81,7 +81,7 @@
 .toc-chapter-q {
     margin: 7px 0 0;
     max-width: 26ch;
-    color: var(--toc-ink-soft);
+    color: var(--accent);
     font: italic var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-body);
 }
 
