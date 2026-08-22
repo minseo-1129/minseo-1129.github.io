@@ -610,7 +610,7 @@ h1 {
   width: 2px;
   height: 44px;
   border-radius: 999px;
-  background: var(--border-strong);
+  background: var(--accent);
 }
 
 .callout--note {
