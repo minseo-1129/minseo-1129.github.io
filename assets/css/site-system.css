@@ -1,0 +1,218 @@
+/* Shared site-level overrides for the locked design-system baseline.
+   Loaded after legacy styles.css so Home / About / Design can migrate safely
+   without rewriting gallery/lightbox/project functionality.
+*/
+
+body {
+  background: var(--bg);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+  font-weight: var(--weight-regular);
+}
+
+.container {
+  max-width: 680px;
+}
+
+nav,
+nav button,
+.tab-topline,
+.subtitle,
+.item-meta,
+.project-year-label,
+.project-card h3,
+.project-card .card-meta,
+.project-back,
+.project-detail-kicker,
+.project-facts,
+.project-principle h3,
+footer {
+  font-family: var(--font-mono);
+}
+
+nav {
+  font-size: var(--type-ui-size);
+  line-height: var(--type-ui-leading);
+}
+
+nav button { font-weight: var(--weight-regular); }
+
+.tab-topline {
+  font: var(--weight-regular) var(--type-micro-size)/1.6 var(--font-mono);
+  letter-spacing: .10em;
+  margin-bottom: 40px;
+}
+
+.tab-topline strong { font-weight: var(--weight-medium); }
+
+#home h1,
+.project-detail-page h1 {
+  color: var(--text-main);
+  font: var(--weight-medium) var(--type-display-size)/var(--type-display-leading) var(--font-mono);
+  letter-spacing: var(--type-display-tracking);
+}
+
+.subtitle {
+  color: var(--accent-strong);
+  font: var(--weight-regular) var(--type-ui-size)/1.5 var(--font-mono);
+  letter-spacing: .06em;
+}
+
+p.intro,
+.project-detail-lede,
+.project-detail-copy {
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-leading);
+}
+
+#about h2,
+#publications h2,
+#design h2 {
+  color: var(--accent-strong);
+  font: var(--weight-medium) var(--type-section-size)/var(--type-section-leading) var(--font-mono);
+  letter-spacing: var(--type-section-tracking);
+}
+
+.item-title {
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: var(--type-body-size);
+  font-weight: var(--weight-medium);
+}
+
+.item-author,
+.item-desc,
+.project-card p,
+.project-principle p,
+.fragment-status {
+  font-family: var(--font-body);
+}
+
+.item-author { font-size: var(--type-ui-size); }
+.item-author strong { font-weight: var(--weight-medium); }
+.item-desc { font-size: var(--type-small-size); line-height: var(--type-small-leading); }
+
+.item-meta {
+  font: var(--weight-regular) var(--type-ui-size)/var(--type-ui-leading) var(--font-mono);
+}
+
+.skills-grid { gap: 8px; }
+
+.skill-tag {
+  background: var(--soft);
+  border-radius: 5px;
+  padding: 6px 9px;
+  color: var(--text-muted);
+  font: var(--weight-regular) var(--type-ui-size)/1.2 var(--font-mono);
+}
+
+.project-card {
+  border-radius: var(--radius);
+}
+
+.project-card h3 {
+  font: var(--weight-medium) var(--type-subheading-size)/var(--type-subheading-leading) var(--font-mono);
+}
+
+.project-card p {
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-leading);
+}
+
+.project-card .card-meta {
+  font: var(--weight-regular) var(--type-micro-size)/var(--type-micro-leading) var(--font-mono);
+}
+
+.project-back,
+.project-detail-kicker {
+  font: var(--weight-regular) var(--type-ui-size)/var(--type-ui-leading) var(--font-mono);
+}
+
+.project-detail-lede {
+  font-size: var(--type-lead-size);
+  line-height: var(--type-lead-leading);
+}
+
+/* Design and Research facts share one metadata grammar. */
+.project-facts > div {
+  border-top: 1px solid var(--border);
+  padding-top: 9px;
+}
+
+.project-facts dt {
+  color: var(--text-muted);
+  font: var(--weight-regular) var(--type-micro-size)/var(--type-micro-leading) var(--font-mono);
+  letter-spacing: var(--type-micro-tracking);
+}
+
+.project-facts dd {
+  color: var(--text-main);
+  font: var(--weight-regular) var(--type-ui-size)/1.5 var(--font-mono);
+}
+
+.project-principle {
+  border-top: 1px solid var(--border);
+}
+
+.project-principle h3 {
+  font: var(--weight-medium) var(--type-subheading-size)/var(--type-subheading-leading) var(--font-mono);
+}
+
+.project-principle p {
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-leading);
+}
+
+footer {
+  font: var(--weight-regular) var(--type-micro-size)/var(--type-micro-leading) var(--font-mono);
+}
+
+/* Medium keeps the desktop architecture; spacing compresses only. */
+@media (min-width: 721px) and (max-width: 900px) {
+  body { padding: 32px 22px 64px; }
+  nav { margin-bottom: 50px; }
+}
+
+@media (max-width: 720px) {
+  body { padding: 22px 18px 54px; }
+
+  nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    margin-bottom: 38px;
+  }
+
+  .tab-topline { margin-bottom: 32px; }
+
+  .list-container { gap: 21px; }
+
+  /* Keep education dates visible without stretching every row vertically. */
+  .list-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .item-meta {
+    max-width: 92px;
+    white-space: normal;
+    text-align: right;
+    font-size: var(--type-micro-size);
+    line-height: 1.45;
+  }
+
+  .project-facts,
+  .project-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-hero { margin: 26px 0; }
+  .project-gallery--identity { grid-template-columns: 1fr; }
+  .project-gallery-item--wide { grid-column: auto; }
+}
