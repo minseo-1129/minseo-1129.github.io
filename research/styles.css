@@ -56,7 +56,7 @@
       color: var(--text-muted);
       font-family: var(--font-mono);
       font-size: var(--type-ui);
-      margin-bottom: 48px;
+      margin-bottom: 72px;
     }
     .topline a { border-bottom: 0; }
 
