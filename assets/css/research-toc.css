@@ -108,18 +108,17 @@
     border-top: 0;
 }
 
-/* Study ID and title share one typographic tier; colour keeps the locator secondary. */
+/* Study ID and title share one quieter typographic tier. */
 .toc-entry-num {
     color: var(--toc-ink-soft);
-    font: var(--weight-medium) var(--type-item-title-size)/var(--type-item-title-leading) var(--font-mono);
+    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
     letter-spacing: 0;
     white-space: nowrap;
 }
 
-/* Shared item-title role: Mono 500 / 14px / normal case. */
 .toc-entry-title {
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-item-title-size)/var(--type-item-title-leading) var(--font-mono);
+    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
     letter-spacing: 0;
     text-transform: none;
 }
@@ -228,8 +227,8 @@
 
     .toc-entry-num,
     .toc-entry-title {
-        font-size: var(--type-item-title-size);
-        line-height: var(--type-item-title-leading);
+        font-size: var(--type-secondary-size);
+        line-height: var(--type-secondary-leading);
     }
 
     .toc-entry-title { overflow-wrap: anywhere; }
