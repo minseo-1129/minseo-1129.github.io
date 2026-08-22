@@ -80,6 +80,32 @@
     align-self: start;
 }
 
+/* Programme title */
+.toc-chapter-title h3 {
+    margin: 0;
+
+    font-family: var(--font-body);
+    font-size: var(--type-small);   /* 14px */
+    font-weight: 600;
+    line-height: 1.35;
+
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+.toc-chapter-q {
+    margin: 8px 0 0;
+    max-width: 26ch;
+
+    color: var(--toc-ink-soft);
+
+    font-family: var(--font-body);
+    font-size: var(--type-ui);      /* 12px */
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+}
+
 .toc-entries {
     grid-column: 3;
     min-width: 0;
