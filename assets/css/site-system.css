@@ -83,6 +83,11 @@ p.intro,
   line-height: var(--type-body-leading);
 }
 
+/* Home affiliation is UI/status-like, so it uses Mono without changing its scale. */
+#home p.intro {
+  font-family: var(--font-mono);
+}
+
 #about h2,
 #publications h2,
 #design h2,
@@ -125,6 +130,7 @@ p.intro,
 }
 
 .item-meta {
+  color: var(--accent);
   font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
 }
 
@@ -160,6 +166,7 @@ p.intro,
 }
 
 .project-card .card-meta {
+  color: var(--accent);
   font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
 }
 
