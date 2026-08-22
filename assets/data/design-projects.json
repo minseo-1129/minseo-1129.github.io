@@ -29,8 +29,8 @@
         "icon": "<svg aria-hidden=\"true\" class=\"icon\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\"><path d=\"M10 3h4v4l2 3v9a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-9l2-3z\"></path><path d=\"M8 12h8\"></path><circle cx=\"12\" cy=\"15.5\" r=\"1.5\"></circle></svg>"
       },
       {
-        "title": "Void",
-        "description": "A calendar visual system translating seasonal photographs into grids, colour, and illustration.",
+        "title": "Void: Calendar Design with City Sky Views",
+        "description": "Visual system translating seasonal photographs into illustration.",
         "meta": "Mar 2021 – Jun 2021 · Visual System · Calendar Design",
         "href": "projects/void.html",
         "icon": "<svg aria-hidden=\"true\" class=\"icon\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\"><rect height=\"16\" rx=\"2\" width=\"18\" x=\"3\" y=\"5\"></rect><path d=\"M7 3v4M17 3v4M3 10h18\"></path><path d=\"M7 14h2M11 14h2M15 14h2M7 17h2M11 17h2\"></path></svg>"
@@ -62,7 +62,7 @@
         "icon": "<svg class=\"icon\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.5\" viewbox=\"0 0 24 24\"><rect height=\"12\" rx=\"2\" width=\"12\" x=\"3\" y=\"6\"></rect><path d=\"M17 9l4-2v10l-4-2z\"></path><path d=\"M9 12c-1-1-2.2-.4-2.2.8 0 1 2.2 2.7 2.2 2.7s2.2-1.7 2.2-2.7c0-1.2-1.2-1.8-2.2-.8z\" fill=\"currentColor\" stroke=\"none\"></path></svg>"
       },
       {
-        "title": "Blafard — Invisible Cities by Italo Calvino",
+        "title": "Blafard: Invisible Cities by Italo Calvino",
         "description": "Editorial design for a fictional publishing imprint.",
         "meta": "Spring 2020 · Book Design",
         "href": "projects/blafard.html",
