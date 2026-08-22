@@ -187,28 +187,97 @@
         padding: 0;
     }
 
+    .toc-topline {
+        margin-bottom: 32px;
+    }
+
+    .toc-intro {
+        font-size: var(--type-small);
+        line-height: 1.7;
+        margin-bottom: 36px;
+        max-width: none;
+    }
+
+    /* Programme block:
+       number | programme title
+       projects span the full width underneath */
     .toc-chapter {
-        display: block;
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr);
+        column-gap: 12px;
+        align-items: start;
+
         padding-top: 18px;
         margin-top: 26px;
     }
 
     .toc-chapter-num {
+        grid-column: 1;
+        grid-row: 1;
         display: block;
+
         font-size: 1.125rem;
+        padding-top: 2px;
     }
 
     .toc-chapter-title {
+        grid-column: 2;
+        grid-row: 1;
         display: block;
-        margin: 4px 0 14px;
+        margin: 0;
+        min-width: 0;
+    }
+
+    .toc-chapter-title h3 {
+        font-size: var(--type-small);
+        line-height: 1.35;
+    }
+
+    .toc-chapter-q {
+        font-size: var(--type-ui);
+        line-height: 1.5;
+        margin-top: 6px;
+        max-width: 30ch;
+    }
+
+    /* Very important:
+       remove the desktop 28px left offset */
+    .toc-entries {
+        grid-column: 1 / -1;
+        grid-row: 2;
+
+        margin-left: 0;
+        margin-top: 18px;
+        min-width: 0;
     }
 
     .toc-entry {
-        grid-template-columns: 54px minmax(0, 1fr);
-        row-gap: 4px;
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        column-gap: 10px;
+        align-items: start;
+
+        padding: 12px 0;
     }
-.toc-footer {
+
+    .toc-entry:first-child {
+        padding-top: 0;
+    }
+
+    .toc-entry-num {
+        font-size: var(--type-ui);
+        line-height: 1.45;
+    }
+
+    .toc-entry-title {
+        font-size: var(--type-ui);
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .toc-footer {
         flex-direction: column;
         gap: 6px;
+        margin-top: 32px;
     }
 }
