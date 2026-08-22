@@ -18,6 +18,13 @@
   --type-callout: 1rem;     /* 16px — RQ / takeaway */
   --type-metric: 1.5rem;    /* 24px — result numbers */
   --type-title: clamp(1.5rem, 2.3vw, 1.8rem); /* 24–28.8px */
+
+  /* Unified reading rhythm */
+  --leading-title: 1.18;
+  --leading-body: 1.75;
+  --leading-lead: 1.7;
+  --leading-callout: 1.65;
+  --leading-small: 1.5;
 }
 
 @media (prefers-color-scheme: light) {
