@@ -276,11 +276,15 @@
             border: none;
             color: var(--text-muted);
             cursor: pointer;
-            font-family: var(--font-mono); /* matches .topline back-nav on research pages */
-            font-size: var(--type-ui); /* 0.75rem — was 0.82rem hardcoded */
+            font-family: var(--font-mono);
+            font-size: var(--type-ui);
+            line-height: 1.6;
             margin-bottom: 60px;
             padding: 0;
-            display: inline-block;
+        
+            display: block;
+            width: fit-content;
+        
             text-decoration: none;
         }
 
