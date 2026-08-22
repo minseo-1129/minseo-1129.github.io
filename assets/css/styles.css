@@ -294,14 +294,15 @@
 
         .project-detail-kicker {
             color: var(--accent);
-            font-size: 0.78rem;
+            font-size: var(--type-ui);
+            font-weight: 400;
             letter-spacing: 0.06em;
             margin-bottom: 12px;
             text-transform: uppercase;
         }
 
         .project-detail-page h1 {
-            font-size: clamp(1.5rem, 4vw, 2.05rem);
+            font-size: var(--type-title);
             line-height: 1.18;
             margin-bottom: 18px;
             max-width: 640px;
@@ -310,7 +311,7 @@
         .project-detail-lede,
         .project-detail-copy {
             color: var(--text-muted);
-            font-size: 0.92rem;
+            font-size: var(--type-body);
             line-height: 1.75;
             max-width: 610px;
         }
