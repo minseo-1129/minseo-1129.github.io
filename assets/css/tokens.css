@@ -9,15 +9,19 @@
   --accent: #7dd3fc;
   --border: #222e3a;
 
+  /* Unified font grammar */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-body: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+
   /* Unified type grammar */
-  --type-micro: 0.6875rem;  /* 11px — labels / captions */
-  --type-ui: 0.75rem;       /* 12px — navigation / metadata */
-  --type-small: 0.875rem;   /* 14px — support text */
-  --type-body: 0.9375rem;   /* 15px — long-form reading */
-  --type-lead: 1rem;        /* 16px — section lead */
-  --type-callout: 1rem;     /* 16px — RQ / takeaway */
-  --type-metric: 1.5rem;    /* 24px — result numbers */
-  --type-title: clamp(1.5rem, 2.3vw, 1.8rem); /* 24–28.8px */
+  --type-micro: 0.6875rem;
+  --type-ui: 0.75rem;
+  --type-small: 0.875rem;
+  --type-body: 0.9375rem;
+  --type-lead: 1rem;
+  --type-callout: 1rem;
+  --type-metric: 1.5rem;
+  --type-title: clamp(1.5rem, 2.3vw, 1.8rem);
 
   /* Unified reading rhythm */
   --leading-title: 1.18;
