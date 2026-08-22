@@ -90,7 +90,7 @@ a:hover {
 }
 
 .case-header {
-  padding-bottom: 46px;
+  padding-bottom: 42px;
 }
 
 .kicker {
@@ -148,7 +148,7 @@ h1 {
 }
 
 .question-wrap {
-  margin-bottom: 66px;
+  margin-bottom: 42px;
 }
 
 .research-question {
@@ -180,7 +180,7 @@ h1 {
   grid-template-columns: var(--rail) minmax(0, var(--reading));
   gap: var(--gap);
   align-items: start;
-  padding: 58px 0 68px;
+  padding: 54px 0 40px;
   border-top: 1px dashed var(--border);
 }
 
