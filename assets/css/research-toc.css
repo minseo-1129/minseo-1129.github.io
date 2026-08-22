@@ -10,33 +10,16 @@
     --toc-rule: var(--border);
     --toc-accent: var(--accent-strong);
 
+    /* Sit directly on the shared page canvas, like About / Design / Publications. */
     position: relative;
-    isolation: isolate;
-    background: var(--toc-paper);
     color: var(--toc-ink);
-    padding: 44px 36px 40px;
-    border: 1px solid var(--toc-rule);
-    box-shadow: 0 24px 70px -34px rgba(32, 35, 42, 0.18);
-    overflow: hidden;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
 }
 
-/* Paper grain — subtle, generated, no image asset required. */
-.research-toc::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.05;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    background-size: 220px 220px;
-}
-
-.research-toc > * {
-    position: relative;
-    z-index: 1;
-}
 
 .toc-topline {
     display: flex;
@@ -200,7 +183,7 @@
 
 @media (max-width: 700px) {
     .research-toc {
-        padding: 32px 20px 28px;
+        padding: 0;
     }
 
     .toc-chapter {
