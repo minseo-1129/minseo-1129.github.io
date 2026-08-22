@@ -2,7 +2,11 @@
         @import url("tokens.css");
 
         :root {
-            --font: var(--font-mono);
+            --font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            /* Same pairing used on research/case-study pages, adopted here for the
+               .project-detail-* family so detail pages share one typographic voice. */
+            --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-body: "SUSE", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
         }
 
         * {
@@ -276,15 +280,11 @@
             border: none;
             color: var(--text-muted);
             cursor: pointer;
-            font-family: var(--font-mono);
-            font-size: var(--type-ui);
-            line-height: 1.6;
+            font-family: var(--font-mono); /* matches .topline back-nav on research pages */
+            font-size: var(--type-ui); /* 0.75rem — was 0.82rem hardcoded */
             margin-bottom: 60px;
             padding: 0;
-        
-            display: block;
-            width: fit-content;
-        
+            display: inline-block;
             text-decoration: none;
         }
 
@@ -364,14 +364,14 @@
         }
 
         .project-detail-section {
-            margin-top: var(--space-section);
+            margin-top: 54px;
         }
 
         .project-principles {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
-            margin-top: var(--space-block);
+            margin-top: 26px;
         }
 
         .project-principle {
@@ -511,7 +511,7 @@
             }
 
             .project-detail-hero {
-                margin: var(--space-hero) 0;
+                margin: 26px 0;
             }
 
             .project-gallery--identity {
@@ -523,15 +523,6 @@
             }
         }
 
-#publications .list-container {
-    gap: 30px;
-}
-
-#publications .item-author,
-#publications .item-venue {
-    font-size: var(--type-ui);
-}
-
 /* Content fragments loaded by assets/js/site.js */
 .fragment-status {
   color: var(--text-muted);
@@ -539,85 +530,89 @@
   padding: 14px 0;
 }
 
-/* Research index: restrained list treatment adapted from the case-study index. */
+/* Research index: editorial three-column list inspired by the case-study grammar. */
         .research-intro {
             color: var(--text-muted);
-            font-size: var(--type-body); /* 0.9375rem — shared "intro paragraph" tier */
+            font-size: var(--type-body);
             line-height: 1.7;
-            margin: -8px 0 36px;
+            margin: -8px 0 42px;
             max-width: 640px;
         }
 
         .research-program {
-            margin-top: 36px;
+            margin-top: 44px;
         }
 
         .research-program:first-of-type {
             margin-top: 0;
         }
 
+        .research-program-head,
+        .research-index-item {
+            display: grid;
+            grid-template-columns: 52px minmax(0, 1.15fr) minmax(0, 0.95fr);
+            column-gap: 22px;
+        }
+
         .research-program-head {
-            margin-bottom: 4px;
+            align-items: end;
+            padding-bottom: 10px;
         }
 
         .research-program-head > span {
-            display: block;
+            grid-column: 2;
             color: var(--accent);
-            font-size: var(--type-ui); /* 0.75rem — shared "eyebrow label" tier, matches .kicker on case-study pages */
-            line-height: 1.5;
-            letter-spacing: 0.04em;
+            font-size: var(--type-ui);
+            line-height: 1.45;
+            letter-spacing: 0.045em;
         }
 
         .research-program-head small {
-            display: block;
+            grid-column: 3;
             color: var(--text-muted);
-            font-size: var(--type-ui); /* 0.75rem — same tier as its label line above */
-            line-height: 1.55;
-            margin-top: 3px;
+            font-size: var(--type-micro);
+            line-height: 1.5;
+            text-align: left;
         }
 
         .research-index-list {
-            display: flex;
-            flex-direction: column;
+            border-bottom: 1px dashed var(--border);
         }
 
         .research-index-item {
-            display: grid;
-            grid-template-columns: 52px minmax(0, 1fr);
-            gap: 14px;
-            padding: 15px 0;
+            align-items: start;
+            padding: 18px 0 19px;
             border-top: 1px dashed var(--border);
             border-bottom: 0;
         }
 
-        .research-index-item:last-child {
-            border-bottom: 1px dashed var(--border);
-        }
-
         .research-index-item:hover {
-            border-bottom-style: dashed;
+            border-bottom-style: none;
         }
 
         .research-code {
             color: var(--accent);
-            font-size: var(--type-ui); /* 0.75rem — shared "row tag" tier, matches .item-meta */
+            font-size: var(--type-ui);
             line-height: 1.5;
+            padding-top: 1px;
         }
 
-        .research-index-item strong {
-            display: block;
+        .research-item-title {
             color: var(--text-main);
-            font-size: var(--type-body); /* 0.9375rem — shared "row title" tier, matches .item-title */
+            font-size: var(--type-body);
             line-height: 1.45;
             font-weight: 600;
         }
 
-        .research-index-item small {
+        .research-item-summary {
             display: block;
             color: var(--text-muted);
             font-size: var(--type-ui);
             line-height: 1.55;
-            margin-top: 4px;
+        }
+
+        .research-index-item:hover .research-item-title {
+            color: var(--accent);
         }
 
         .project-card-static {
@@ -630,9 +625,33 @@
             color: var(--text-main);
         }
 
-        @media (max-width: 560px) {
+        @media (max-width: 700px) {
+            .research-program-head,
             .research-index-item {
                 grid-template-columns: 44px minmax(0, 1fr);
-                gap: 10px;
+                column-gap: 12px;
+            }
+
+            .research-program-head > span {
+                grid-column: 1 / -1;
+            }
+
+            .research-program-head small {
+                grid-column: 1 / -1;
+                margin-top: 4px;
+            }
+
+            .research-code {
+                grid-column: 1;
+            }
+
+            .research-item-title,
+            .research-item-summary {
+                grid-column: 2;
+            }
+
+            .research-item-summary {
+                margin-top: 4px;
             }
         }
+
