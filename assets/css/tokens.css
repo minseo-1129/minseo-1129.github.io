@@ -29,6 +29,12 @@
   --leading-lead: 1.7;
   --leading-callout: 1.65;
   --leading-small: 1.5;
+   
+  /* Unified spacing grammar */
+  --space-paragraph: 18px;
+  --space-block: 26px;
+  --space-hero: 34px;
+  --space-section: 54px;
 }
 
 @media (prefers-color-scheme: light) {
