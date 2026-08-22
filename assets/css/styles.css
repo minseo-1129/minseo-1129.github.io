@@ -364,7 +364,7 @@
         }
 
         .project-detail-section {
-            margin-top: 54px;
+            margin-top: var(--space-section);
         }
 
         .project-principles {
