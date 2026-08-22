@@ -523,6 +523,15 @@
             }
         }
 
+#publications .list-container {
+    gap: 30px;
+}
+
+#publications .item-author,
+#publications .item-venue {
+    font-size: var(--type-ui);
+}
+
 /* Content fragments loaded by assets/js/site.js */
 .fragment-status {
   color: var(--text-muted);
@@ -606,7 +615,7 @@
         .research-index-item small {
             display: block;
             color: var(--text-muted);
-            font-size: var(--type-small); /* 0.875rem — shared "row caption" tier, matches .item-desc */
+            font-size: var(--type-ui);
             line-height: 1.55;
             margin-top: 4px;
         }
