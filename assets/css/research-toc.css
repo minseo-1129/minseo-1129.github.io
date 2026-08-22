@@ -56,7 +56,7 @@
 .toc-chapter {
     display: grid;
     grid-template-columns: 34px 176px minmax(0, 1fr);
-    column-gap: 30px;
+    column-gap: 20px;
     align-items: start;
 
     border-top: 1px solid var(--toc-rule);
@@ -80,7 +80,6 @@
     align-self: start;
 }
 
-/* Programme title */
 /* Programme title */
 .toc-chapter-title h3 {
     margin: 0;
@@ -111,12 +110,13 @@
 .toc-entries {
     grid-column: 3;
     min-width: 0;
+    margin-left: 10px;
 }
 
 .toc-entry {
     display: grid;
     grid-template-columns: 64px minmax(0, 1fr);
-    column-gap: 18px;
+    column-gap: 16px;
     align-items: baseline;
 
     padding: 14px 0;
@@ -144,7 +144,7 @@
 .toc-entry-title {
     font-family: var(--font-mono);
     font-weight: 500;
-    font-size: 0.8125rem;
+    font-size: var(--type-small);
     letter-spacing: 0.01em;
     line-height: 1.45;
     text-transform: uppercase;
