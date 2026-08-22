@@ -1,67 +1,53 @@
-# Minseo Cho portfolio — static GitHub Pages structure
+# Minseo Cho — Portfolio
 
-This site uses plain HTML, CSS, and JavaScript. It has no build step.
+Personal portfolio for HCI research and design work.
 
-## Main navigation
+## Design-system migration
 
-- Home
-- Research
-- Design
-- Publications
-- About
+The `design-system-migration-v1` branch is the staged migration of the portfolio to the locked design-system baseline.
 
-`Research` replaces the former Work tab and loads `content/research.html`.
-`Design` replaces the former Notes tab and loads `content/design.html`.
+### Typography
 
-## Research case studies
+- Roboto Mono: structure, navigation, labels, headings, metadata, metrics
+- DM Sans: prose, descriptions, explanatory text
+- Weights: 400 / 500 only
 
-Research case-study pages live in `research/`.
+### Visual grammar
 
-- F-01 / F-02 — ForMe
-- D-01–D-04 — REDI
-- M-01 — Multimodal Digital Phenotyping
-- R-01–R-04 — RECO / Reflective Companion
-- C-01 — Community Care AI
-- T-01 — AI Evaluation
+- horizontal rules = structured information (Data Table + Key–Value)
+- bordered boxes = independent units (Card)
+- neutral soft fill `#f6f7f8` = sequence / Process
+- lavender `#f2f1f8` = Takeaway / semantic emphasis
+- solid rules = information boundaries / facts / metadata
+- dashed rules = narrative section transitions
 
-The case studies use `research/styles.css`.
+### Research primitives
 
-## Design projects
+1. Data Table
+2. Key–Value
+3. Card
+4. Process
+5. Chart
+6. Metric Group
+7. Callout
 
-Design cards are data-driven: `content/design.html` is a thin wrapper, and the actual card
-content lives in `assets/data/design-projects.json`, rendered client-side by
-`renderDesignCards()` in `assets/js/site.js`. To add, edit, or reorder a card, edit the JSON —
-do not add card markup to `content/design.html`. See `docs/ADDING_PROJECTS.md`.
+`.repair-list` remains a local exception until a second reusable use-case appears.
 
-Standalone project detail pages remain in `projects/`, and their back links now return to `#design`.
+### Responsive baseline
 
-Cards without a completed detail page (`"href": null` in the JSON) are rendered as static cards
-rather than dead `href="#"` links.
+- Wide: 901px+
+- Medium: 721–900px
+- Compact: ≤720px
+- Tiny Key–Value stack: ≤420px
 
-## Adding new projects or case studies
+### Migration status
 
-See `docs/ADDING_PROJECTS.md` for the step-by-step checklist (Design cards, Research case
-studies, and how the shared colour tokens work).
+- Shared design tokens: migrated
+- Home / About / Design typography override: migrated
+- Research index responsive grammar: migrated
+- Research detail CSS: consolidated around the seven primitives
+- Legacy Research classes: temporarily supported as compatibility aliases
+- F-01: migrated to the new primitive class vocabulary as the markup pilot
+- Design detail facts: solid metadata rules applied
 
-## Shared design tokens
-
-The site's colour palette (`--bg`, `--text-main`, `--text-muted`, `--accent`, `--border`) lives
-in one place: `assets/css/tokens.css`. `assets/css/styles.css`, `research/styles.css`, and the
-inline styles in `research/f01_dialogue.html` all `@import` it. Change a colour once in
-`tokens.css` and it applies everywhere — don't redefine these variables elsewhere.
-
-## Publications
-
-Publication entries live in `content/publications.html`.
-Titles that do not yet have a real URL are plain text rather than placeholder links.
-
-## Preview locally
-
-Do not open `index.html` via `file://`, because browsers may block fragment loading.
-From the site folder run:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then visit `http://localhost:8000`.
+The compatibility layer is intentional: remaining Research HTML can be migrated page-by-page without changing the visual result or risking a large all-at-once rewrite.
