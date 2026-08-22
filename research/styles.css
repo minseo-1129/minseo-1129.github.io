@@ -11,20 +11,9 @@
       --paper-accent: #0369a1;
 
       --page: 1040px;
-      --rail: 126px;
+      --rail: 188px;
       --reading: 650px;
       --gap: 54px;
-
-      /* Unified type grammar */
-      --type-micro: 0.6875rem;  /* 11px — labels / captions */
-      --type-ui: 0.75rem;       /* 12px — navigation / metadata */
-      --type-small: 0.875rem;   /* 14px — infographic support text */
-      --type-body: 1rem;        /* 16px — long-form reading */
-      --type-lead: 1.125rem;    /* 18px — section lead */
-      --type-callout: 1rem;     /* 16px — RQ / takeaway */
-      --type-metric: 1.5rem;    /* 24px — result numbers */
-      --type-title: clamp(1.5rem, 2.3vw, 1.8rem); /* 24–28.8px */
-    }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { overflow-y: scroll; scrollbar-gutter: stable; scroll-behavior: smooth; }
