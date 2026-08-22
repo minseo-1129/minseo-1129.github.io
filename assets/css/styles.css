@@ -82,7 +82,7 @@
 
         p.intro {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-size: var(--type-body); /* 0.9375rem — shared "intro paragraph" tier */
             max-width: 580px;
             margin-bottom: 30px;
         }
@@ -106,7 +106,7 @@
         }
 
         h2 {
-            font-size: 0.875rem;
+            font-size: var(--type-small); /* 0.875rem — same value as before, now tokenized */
             font-weight: 600;
             color: var(--accent);
             margin-bottom: 25px;
@@ -135,7 +135,7 @@
 
         .item-title {
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: var(--type-body); /* 0.9375rem — shared "row title" tier */
         }
 
         .item-title a {
@@ -150,13 +150,13 @@
 
 
         .item-author {
-            font-size: 0.85rem;
+            font-size: var(--type-small); /* 0.875rem — shared "row caption" tier */
             color: var(--text-muted);
             margin-top: 2px;
         }
 
         .item-venue {
-            font-size: 0.85rem;
+            font-size: var(--type-small); /* 0.875rem — shared "row caption" tier */
             color: var(--accent);
             font-style: italic;
             margin-top: 2px;
@@ -164,13 +164,13 @@
 
         .item-desc {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: var(--type-small); /* 0.875rem — shared "row caption" tier */
             margin-top: 4px;
         }
 
         .item-meta {
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: var(--type-ui); /* 0.75rem — shared "row tag" tier */
             white-space: nowrap;
         }
 
@@ -516,14 +516,14 @@
 /* Content fragments loaded by assets/js/site.js */
 .fragment-status {
   color: var(--text-muted);
-  font-size: 0.82rem;
+  font-size: var(--type-small); /* 0.875rem — shared "row caption" tier */
   padding: 14px 0;
 }
 
 /* Research index: restrained list treatment adapted from the case-study index. */
         .research-intro {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: var(--type-body); /* 0.9375rem — shared "intro paragraph" tier */
             line-height: 1.7;
             margin: -8px 0 36px;
             max-width: 640px;
@@ -544,7 +544,7 @@
         .research-program-head > span {
             display: block;
             color: var(--accent);
-            font-size: 0.82rem;
+            font-size: var(--type-ui); /* 0.75rem — shared "eyebrow label" tier, matches .kicker on case-study pages */
             line-height: 1.5;
             letter-spacing: 0.04em;
         }
@@ -552,7 +552,7 @@
         .research-program-head small {
             display: block;
             color: var(--text-muted);
-            font-size: 0.76rem;
+            font-size: var(--type-ui); /* 0.75rem — same tier as its label line above */
             line-height: 1.55;
             margin-top: 3px;
         }
@@ -581,14 +581,14 @@
 
         .research-code {
             color: var(--accent);
-            font-size: 0.75rem;
+            font-size: var(--type-ui); /* 0.75rem — shared "row tag" tier, matches .item-meta */
             line-height: 1.5;
         }
 
         .research-index-item strong {
             display: block;
             color: var(--text-main);
-            font-size: 0.9rem;
+            font-size: var(--type-body); /* 0.9375rem — shared "row title" tier, matches .item-title */
             line-height: 1.45;
             font-weight: 600;
         }
@@ -596,7 +596,7 @@
         .research-index-item small {
             display: block;
             color: var(--text-muted);
-            font-size: 0.78rem;
+            font-size: var(--type-small); /* 0.875rem — shared "row caption" tier, matches .item-desc */
             line-height: 1.55;
             margin-top: 4px;
         }
