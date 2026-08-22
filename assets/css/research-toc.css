@@ -81,6 +81,7 @@
 }
 
 .toc-entries {
+    grid-column: 3;
     min-width: 0;
 }
 
