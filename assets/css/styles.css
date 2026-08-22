@@ -2,11 +2,7 @@
         @import url("tokens.css");
 
         :root {
-            --font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            /* Same pairing used on research/case-study pages, adopted here for the
-               .project-detail-* family so detail pages share one typographic voice. */
-            --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            --font-body: "SUSE", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            --font: var(--font-mono);
         }
 
         * {
