@@ -1,4 +1,4 @@
-# Minseo Cho portfolio — static GitHub Pages structure
+# Minseo Cho portfolio
 
 This site uses plain HTML, CSS, and JavaScript. It has no build step.
 
