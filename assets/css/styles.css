@@ -530,7 +530,8 @@
   padding: 14px 0;
 }
 
-/* Research index: editorial three-column list inspired by the case-study grammar. */
+/* Research index: programme column + project-list column.
+   The programme acts like a contents-section label; projects sit beside it. */
         .research-intro {
             color: var(--text-muted);
             font-size: var(--type-body);
@@ -540,57 +541,65 @@
         }
 
         .research-program {
-            margin-top: 44px;
+            display: grid;
+            grid-template-columns: 190px minmax(0, 1fr);
+            column-gap: 30px;
+            align-items: start;
+            margin-top: 46px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--border);
         }
 
         .research-program:first-of-type {
             margin-top: 0;
         }
 
-        .research-program-head,
-        .research-index-item {
-            display: grid;
-            grid-template-columns: 52px minmax(0, 1.15fr) minmax(0, 0.95fr);
-            column-gap: 22px;
-        }
-
         .research-program-head {
-            align-items: end;
-            padding-bottom: 10px;
+            padding-top: 3px;
         }
 
         .research-program-head > span {
-            grid-column: 2;
+            display: block;
             color: var(--accent);
             font-size: var(--type-ui);
-            line-height: 1.45;
+            line-height: 1.5;
             letter-spacing: 0.045em;
         }
 
         .research-program-head small {
-            grid-column: 3;
+            display: block;
             color: var(--text-muted);
             font-size: var(--type-micro);
-            line-height: 1.5;
-            text-align: left;
+            line-height: 1.55;
+            margin-top: 6px;
+            max-width: 170px;
         }
 
         .research-index-list {
-            border-bottom: 1px dashed var(--border);
+            min-width: 0;
         }
 
         .research-index-item {
+            display: grid;
+            grid-template-columns: 52px minmax(0, 1fr);
+            column-gap: 16px;
             align-items: start;
-            padding: 18px 0 19px;
-            border-top: 1px dashed var(--border);
-            border-bottom: 0;
+            padding: 0 0 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .research-index-item:last-child {
+            margin-bottom: 0;
         }
 
         .research-index-item:hover {
-            border-bottom-style: none;
+            border-bottom-style: solid;
         }
 
         .research-code {
+            grid-column: 1;
+            grid-row: 1 / span 2;
             color: var(--accent);
             font-size: var(--type-ui);
             line-height: 1.5;
@@ -598,6 +607,7 @@
         }
 
         .research-item-title {
+            grid-column: 2;
             color: var(--text-main);
             font-size: var(--type-body);
             line-height: 1.45;
@@ -605,14 +615,34 @@
         }
 
         .research-item-summary {
+            grid-column: 2;
             display: block;
             color: var(--text-muted);
             font-size: var(--type-ui);
-            line-height: 1.55;
+            line-height: 1.5;
+            margin-top: 5px;
+            max-width: 520px;
         }
 
         .research-index-item:hover .research-item-title {
             color: var(--accent);
+        }
+
+        @media (max-width: 700px) {
+            .research-program {
+                grid-template-columns: 1fr;
+                row-gap: 16px;
+                padding-top: 12px;
+            }
+
+            .research-program-head small {
+                max-width: none;
+            }
+
+            .research-index-item {
+                grid-template-columns: 44px minmax(0, 1fr);
+                column-gap: 12px;
+            }
         }
 
         .project-card-static {
