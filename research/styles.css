@@ -576,7 +576,7 @@ h1 {
 
 /* =========================================================
    07 / CALLOUT
-   question / quote / note / caution.
+   Callouts reuse the shared reading hierarchy; semantics come from modifiers.
    ========================================================= */
 .callout { border-radius: var(--radius); }
 
@@ -593,13 +593,18 @@ h1 {
   max-width: 610px;
   margin: 0 !important;
   color: var(--text-main) !important;
-  font: var(--weight-regular) var(--type-lead-size)/var(--type-lead-leading) var(--font-body) !important;
+  font: var(--weight-regular) var(--type-body-size)/var(--type-body-leading) var(--font-body) !important;
 }
 
 .callout--question {
   position: relative;
   max-width: 650px;
   padding: 18px 0 18px 28px;
+}
+
+.callout--question .callout__body {
+  color: var(--accent) !important;
+  font-style: italic !important;
 }
 
 .callout--question::before {
@@ -620,6 +625,7 @@ h1 {
 
 .copy > .callout--note { margin: 26px 0; }
 .takeaway-wrap .callout--note { margin: 0; }
+.takeaway-wrap .callout__body { font-weight: var(--weight-medium) !important; }
 
 .callout--quote {
   padding: var(--balanced-y) var(--balanced-x);
