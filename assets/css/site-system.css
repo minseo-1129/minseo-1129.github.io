@@ -259,3 +259,33 @@ footer {
   .project-gallery--identity { grid-template-columns: 1fr; }
   .project-gallery-item--wide { grid-column: auto; }
 }
+
+/* Unified text interactions: no underline or bottom rule; accent colour only. */
+a,
+a:hover,
+a:focus-visible {
+  text-decoration: none;
+  border-bottom: 0;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--accent);
+}
+
+nav button,
+nav button:hover,
+nav button.active {
+  border-bottom: 0;
+}
+
+nav button:hover,
+nav button.active {
+  color: var(--accent);
+}
+
+.toc-entry:hover .toc-entry-title,
+.toc-entry:focus-visible .toc-entry-title {
+  color: var(--toc-accent);
+  text-decoration: none;
+}
