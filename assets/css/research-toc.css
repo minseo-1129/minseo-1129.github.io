@@ -120,7 +120,7 @@
 
 .toc-entry-title {
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-small-size)/var(--type-small-leading) var(--font-mono);
+    font: var(--weight-medium) var(--type-item-title-size)/var(--type-small-leading) var(--font-mono);
     letter-spacing: 0;
     text-transform: none;
 }
@@ -239,7 +239,7 @@
     }
 
     .toc-entry-title {
-        font-size: var(--type-small-size);
+        font-size: var(--type-item-title-size);
         line-height: var(--type-small-leading);
         overflow-wrap: anywhere;
     }
