@@ -218,7 +218,7 @@ h1 {
   width: 100%;
   margin: 26px 0;
   border-collapse: collapse;
-  font-size: var(--type-small-size);
+  font-size: var(--type-secondary-size);
 }
 
 .data-table th,
@@ -247,26 +247,26 @@ h1 {
 
 .data-table td {
   color: var(--text-muted);
-  font: var(--weight-regular) var(--type-small-size)/var(--type-small-leading) var(--font-body);
+  font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-body);
 }
 
 .data-table td > strong {
   display: block;
   margin-bottom: 4px;
   color: var(--text-main);
-  font: var(--weight-medium) var(--type-small-size)/1.4 var(--font-mono);
+  font: var(--weight-medium) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
 }
 
 .data-table td > span {
   display: block;
   color: var(--text-muted);
-  font: var(--weight-regular) var(--type-small-size)/1.5 var(--font-body);
+  font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-body);
 }
 
 .data-table--label-first tbody td:first-child,
 .data-table--matrix tbody td:first-child {
   color: var(--text-main);
-  font: var(--weight-regular) var(--type-ui-size)/1.45 var(--font-mono);
+  font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
 }
 
 .data-table--comparison { table-layout: fixed; }
