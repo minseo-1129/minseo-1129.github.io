@@ -49,7 +49,7 @@
 
 .toc-chapter {
     display: grid;
-    grid-template-columns: 44px 210px minmax(0, 1fr);
+    grid-template-columns: 44px 185px minmax(0, 1fr);
     column-gap: 28px;
     align-items: start;
     border-top: 1px solid var(--toc-rule);
