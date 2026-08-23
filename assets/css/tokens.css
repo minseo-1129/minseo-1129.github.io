@@ -1,27 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap");
 
 /* Shared design tokens — single source of truth for the portfolio.
-   Typography and colour are aligned to the mobile typography specimen.
+   Baseline v1: typography, surfaces, line grammar and responsive states.
 
    Visual grammar:
    - horizontal rules = structured information
    - bordered boxes = independent units
    - neutral soft fill = sequence / process
-   - one blue-violet accent = emphasis / interaction
+   - blue-violet = semantic emphasis / interaction
    - solid rules = information boundaries
    - dashed rules = narrative transitions
 */
 
 :root {
-  /* Typography families — specimen defaults to the device/system mono stack. */
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* Typography families */
+  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-body: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   --weight-regular: 400;
   --weight-medium: 500;
-  --weight-semibold: 600;
 
-  /* Neutral specimen palette + midpoint blue-violet accent. */
+  /* Neutral specimen palette + midpoint blue-violet accent */
+
+  /* Page + surfaces */
   --bg: #ffffff;
   --surface: #f7f7f6;
   --surface-strong: #ffffff;
@@ -45,8 +46,8 @@
   /* Radius */
   --radius: 7px;
 
-  /* Type roles — Balanced specimen scale */
-  --type-display-size: 25px;
+  /* Type roles — desktop / wide */
+  --type-display-size: 28px;
   --type-display-leading: 1.20;
   --type-display-tracking: -0.025em;
 
@@ -54,19 +55,19 @@
   --type-section-leading: 1.40;
   --type-section-tracking: -0.01em;
 
-  --type-subheading-size: 14px;
+  --type-subheading-size: 13px;
   --type-subheading-leading: 1.45;
 
   --type-item-title-size: 14px;
   --type-item-title-leading: 1.45;
 
-  --type-lead-size: 15.5px;
-  --type-lead-leading: 1.60;
+  --type-lead-size: 16px;
+  --type-lead-leading: 1.62;
 
-  --type-body-size: 15.5px;
+  --type-body-size: 15px;
   --type-body-leading: 1.64;
 
-  --type-small-size: 13.5px;
+  --type-small-size: 14px;
   --type-small-leading: 1.52;
 
   --type-secondary-size: 12px;
@@ -79,7 +80,7 @@
   --type-micro-leading: 1.38;
   --type-micro-tracking: 0.01em;
 
-  --type-metric-size: 22px;
+  --type-metric-size: 24px;
   --type-metric-leading: 1.20;
   --type-metric-tracking: -0.02em;
 
@@ -101,6 +102,7 @@
 
   /* ------------------------------------------------------------------
      Compatibility aliases used by the current code during migration.
+     These let us migrate HTML/CSS incrementally without breaking pages.
      ------------------------------------------------------------------ */
   --type-micro: var(--type-micro-size);
   --type-ui: var(--type-ui-size);
@@ -120,19 +122,10 @@
 
 @media (max-width: 720px) {
   :root {
-    /* Keep the specimen's Balanced mobile scale exact. */
     --type-display-size: 25px;
-    --type-display-leading: 1.20;
     --type-lead-size: 15.5px;
-    --type-lead-leading: 1.60;
-    --type-body-size: 15.5px;
-    --type-body-leading: 1.64;
+    --type-body-size: 15px;
     --type-small-size: 13.5px;
-    --type-small-leading: 1.52;
-    --type-ui-size: 12px;
-    --type-ui-leading: 1.42;
-    --type-micro-size: 11px;
-    --type-micro-leading: 1.38;
     --type-metric-size: 22px;
   }
 }
