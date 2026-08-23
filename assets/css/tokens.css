@@ -59,10 +59,10 @@
   --type-item-title-size: 14px;
   --type-item-title-leading: 1.45;
 
-  --type-lead-size: 16.5px;
+  --type-lead-size: 16px;
   --type-lead-leading: 1.62;
 
-  --type-body-size: 15.5px;
+  --type-body-size: 15px;
   --type-body-leading: 1.64;
 
   --type-small-size: 14px;
@@ -107,14 +107,14 @@
   --type-small: var(--type-small-size);
   --type-body: var(--type-body-size);
   --type-lead: var(--type-lead-size);
-  --type-callout: var(--type-lead-size);
+  --type-callout: var(--type-body-size);
   --type-metric: var(--type-metric-size);
   --type-title: var(--type-display-size);
 
   --leading-title: var(--type-display-leading);
   --leading-body: var(--type-body-leading);
   --leading-lead: var(--type-lead-leading);
-  --leading-callout: var(--type-lead-leading);
+  --leading-callout: var(--type-body-leading);
   --leading-small: var(--type-small-leading);
 }
 
@@ -122,7 +122,7 @@
   :root {
     --type-display-size: 25px;
     --type-lead-size: 15.5px;
-    --type-body-size: 15.5px;
+    --type-body-size: 15px;
     --type-small-size: 13.5px;
     --type-metric-size: 22px;
   }

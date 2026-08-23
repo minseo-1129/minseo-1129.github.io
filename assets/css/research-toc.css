@@ -50,7 +50,7 @@
 .toc-chapter {
     display: grid;
     grid-template-columns: 44px 210px minmax(0, 1fr);
-    column-gap: 16px;
+    column-gap: 28px;
     align-items: start;
     border-top: 1px solid var(--toc-rule);
     padding-top: 22px;
@@ -108,7 +108,7 @@
     border-top: 0;
 }
 
-/* Study ID and title share one quieter typographic tier. */
+/* Research study rows are navigation/UI units, not item-title hierarchy. */
 .toc-entry-num {
     color: var(--toc-ink-soft);
     font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
@@ -158,7 +158,7 @@
 @media (min-width: 721px) and (max-width: 900px) {
     .toc-chapter {
         grid-template-columns: 38px 185px minmax(0, 1fr);
-        column-gap: 16px;
+        column-gap: 20px;
     }
 
     .toc-chapter-num { font-size: 20px; }
