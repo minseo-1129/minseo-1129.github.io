@@ -107,14 +107,14 @@
   --type-small: var(--type-small-size);
   --type-body: var(--type-body-size);
   --type-lead: var(--type-lead-size);
-  --type-callout: var(--type-lead-size);
+  --type-callout: var(--type-body-size);
   --type-metric: var(--type-metric-size);
   --type-title: var(--type-display-size);
 
   --leading-title: var(--type-display-leading);
   --leading-body: var(--type-body-leading);
   --leading-lead: var(--type-lead-leading);
-  --leading-callout: var(--type-lead-leading);
+  --leading-callout: var(--type-body-leading);
   --leading-small: var(--type-small-leading);
 }
 
