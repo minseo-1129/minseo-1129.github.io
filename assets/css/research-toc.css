@@ -85,10 +85,11 @@
     font: italic var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-body);
 }
 
+/* Keep the programme framing and study list visually distinct without shrinking either. */
 .toc-entries {
     grid-column: 3;
     min-width: 0;
-    margin-left: 0;
+    margin-left: 24px;
 }
 
 .toc-entry {
@@ -162,6 +163,7 @@
     }
 
     .toc-chapter-num { font-size: 20px; }
+    .toc-entries { margin-left: 12px; }
 }
 
 /* Compact: chapter number + programme title, entries beneath. */
