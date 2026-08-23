@@ -280,13 +280,13 @@ footer {
   .project-gallery-item--wide { grid-column: auto; }
 }
 
-/* Unified text interactions: no underline or bottom rule; accent colour only.
-   Project cards are excluded because their border is structural, not a text underline. */
+/* Text interactions are intentionally instant: the affordance should read immediately. */
 a:not(.project-card),
 a:not(.project-card):hover,
 a:not(.project-card):focus-visible {
   text-decoration: none;
   border-bottom: 0;
+  transition: none;
 }
 
 a:not(.project-card):hover,
@@ -298,6 +298,7 @@ nav button,
 nav button:hover,
 nav button.active {
   border-bottom: 0;
+  transition: none;
 }
 
 nav button:hover,
@@ -311,13 +312,22 @@ nav button.active {
   text-decoration: none;
 }
 
+/* Spatial / image feedback can stay subtly animated. */
+.project-card {
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.project-gallery-item img {
+  transition: opacity 160ms ease;
+}
+
 /* Publication titles keep an invisible underline at rest so hover never flashes currentColor. */
 #publications .item-title a {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
   text-decoration-color: transparent;
-  transition: color 0.16s ease;
+  transition: none;
 }
 
 #publications .item-title a:hover,
