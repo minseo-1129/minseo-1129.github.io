@@ -7,7 +7,7 @@
    - horizontal rules = structured information
    - bordered boxes = independent units
    - neutral soft fill = sequence / process
-   - lavender = takeaway / semantic emphasis
+   - pale blue-violet = semantic emphasis / takeaway
    - solid rules = information boundaries
    - dashed rules = narrative transitions
 */
@@ -20,26 +20,26 @@
   --weight-regular: 400;
   --weight-medium: 500;
 
-  /* Page + surfaces */
-  --bg: #ffffff;
-  --surface: #f6f7f8;
+  /* Page + surfaces — Aube Blafard */
+  --bg: #fbfcfd;
+  --surface: #f3f4f7;
   --surface-strong: #ffffff;
-  --soft: #f6f7f8;
-  --takeaway-soft: #f2f1f8;
+  --soft: #f3f4f7;
+  --takeaway-soft: #f0f1f7;
 
   /* Text */
-  --text-main: #20232a;
-  --text-muted: #646a79;
+  --text-main: #242832;
+  --text-muted: #737a8a;
 
-  /* Accent */
-  --accent: #9093bb;
-  --accent-strong: #777ba8;
-  --accent-soft: #d9dbea; /* compatibility / analytical accent band */
+  /* Accent — cold dawn blue-violet */
+  --accent: #7482b2;
+  --accent-strong: #5e6da3;
+  --accent-soft: #aeb8d3; /* compatibility / analytical accent band */
 
   /* Lines + tracks */
-  --border: #dfe2e8;
-  --border-strong: #cfd3dc;
-  --track: #eef0f4;
+  --border: #dfe3eb;
+  --border-strong: #ccd2dd;
+  --track: #eef1f5;
 
   /* Radius */
   --radius: 7px;
