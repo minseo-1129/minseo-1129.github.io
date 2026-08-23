@@ -7,7 +7,8 @@
    - horizontal rules = structured information
    - bordered boxes = independent units
    - neutral soft fill = sequence / process
-   - pale blue-violet = semantic emphasis / takeaway
+   - periwinkle = semantic emphasis / interaction
+   - deep indigo = strong editorial emphasis
    - solid rules = information boundaries
    - dashed rules = narrative transitions
 */
@@ -20,26 +21,29 @@
   --weight-regular: 400;
   --weight-medium: 500;
 
-  /* Page + surfaces — Aube Blafard */
-  --bg: #fbfcfd;
-  --surface: #f3f4f7;
-  --surface-strong: #ffffff;
-  --soft: #f3f4f7;
-  --takeaway-soft: #f0f1f7;
+  /* Indigo Editorial palette
+     Core: #FAFAF8 / #D8D8D6 / #3D3F8C / #6F73D9 / #1F2230 */
+
+  /* Page + surfaces */
+  --bg: #fafaf8;
+  --surface: #ebebe9;
+  --surface-strong: #fafaf8;
+  --soft: #ebebe9;
+  --takeaway-soft: #dbdcf1;
 
   /* Text */
-  --text-main: #242832;
-  --text-muted: #737a8a;
+  --text-main: #1f2230;
+  --text-muted: #656770;
 
-  /* Accent — cold dawn blue-violet */
-  --accent: #7482b2;
-  --accent-strong: #5e6da3;
-  --accent-soft: #aeb8d3; /* compatibility / analytical accent band */
+  /* Accent */
+  --accent: #6f73d9;
+  --accent-strong: #3d3f8c;
+  --accent-soft: #dbdcf1;
 
   /* Lines + tracks */
-  --border: #dfe3eb;
-  --border-strong: #ccd2dd;
-  --track: #eef1f5;
+  --border: #d8d8d6;
+  --border-strong: #adadc1;
+  --track: #e7e7e5;
 
   /* Radius */
   --radius: 7px;
