@@ -72,8 +72,8 @@
 .toc-chapter-title h3 {
     margin: 0;
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-subheading-size)/1.35 var(--font-mono);
-    letter-spacing: 0;
+    font: var(--weight-medium) var(--type-subheading-size)/var(--type-subheading-leading) var(--font-mono);
+    letter-spacing: var(--type-subheading-tracking);
     text-transform: uppercase;
 }
 
@@ -95,8 +95,8 @@
     display: grid;
     grid-template-columns: 54px minmax(0, 1fr);
     gap: 10px;
-    align-items: baseline;
-    padding: 12px 0;
+    align-items: start;
+    padding: 10px 0;
     border-top: 1px solid var(--toc-rule);
     border-bottom: 0 !important;
     color: inherit;
@@ -108,7 +108,7 @@
     border-top: 0;
 }
 
-/* Research study rows are navigation/UI units, not item-title hierarchy. */
+/* Study number remains structural UI; title returns to the small/content tier. */
 .toc-entry-num {
     color: var(--toc-ink-soft);
     font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
@@ -118,7 +118,7 @@
 
 .toc-entry-title {
     color: var(--toc-ink);
-    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
+    font: var(--weight-regular) var(--type-small-size)/var(--type-small-leading) var(--font-body);
     letter-spacing: 0;
     text-transform: none;
 }
@@ -198,7 +198,7 @@
 
     .toc-chapter-title h3 {
         font-size: var(--type-subheading-size);
-        line-height: 1.35;
+        line-height: var(--type-subheading-leading);
     }
 
     .toc-chapter-q {
@@ -220,18 +220,21 @@
         grid-template-columns: 54px minmax(0, 1fr);
         gap: 10px;
         align-items: start;
-        padding: 13px 0;
+        padding: 11px 0;
     }
 
     .toc-entry:first-child { padding-top: 0; }
 
-    .toc-entry-num,
-    .toc-entry-title {
+    .toc-entry-num {
         font-size: var(--type-secondary-size);
         line-height: var(--type-secondary-leading);
     }
 
-    .toc-entry-title { overflow-wrap: anywhere; }
+    .toc-entry-title {
+        font-size: var(--type-small-size);
+        line-height: var(--type-small-leading);
+        overflow-wrap: anywhere;
+    }
 
     .toc-footer {
         flex-direction: column;
