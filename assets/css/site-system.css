@@ -2,13 +2,6 @@
    Loaded after legacy styles.css so Home / About / Design can migrate safely
    without rewriting gallery/lightbox/project functionality.
 */
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap");
-
-:root {
-  /* Re-lock these after legacy styles.css, which still defines SUSE during migration. */
-  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-body: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
 
 body {
   background: var(--bg);
@@ -111,16 +104,17 @@ p.intro,
   font-family: var(--font-body);
 }
 
+/* Publication supporting prose belongs to the readable small/content tier. */
 .item-author {
-  font-size: var(--type-secondary-size);
-  line-height: var(--type-secondary-leading);
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-leading);
 }
 
 .item-author strong { font-weight: var(--weight-medium); }
 
 .item-venue {
-  font-size: var(--type-secondary-size);
-  line-height: var(--type-secondary-leading);
+  font-size: var(--type-small-size);
+  line-height: var(--type-small-leading);
   font-style: italic;
 }
 
