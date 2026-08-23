@@ -260,16 +260,17 @@ footer {
   .project-gallery-item--wide { grid-column: auto; }
 }
 
-/* Unified text interactions: no underline or bottom rule; accent colour only. */
-a,
-a:hover,
-a:focus-visible {
+/* Unified text interactions: no underline or bottom rule; accent colour only.
+   Project cards are excluded because their border is structural, not a text underline. */
+a:not(.project-card),
+a:not(.project-card):hover,
+a:not(.project-card):focus-visible {
   text-decoration: none;
   border-bottom: 0;
 }
 
-a:hover,
-a:focus-visible {
+a:not(.project-card):hover,
+a:not(.project-card):focus-visible {
   color: var(--accent);
 }
 
