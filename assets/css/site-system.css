@@ -311,12 +311,17 @@ nav button.active {
   text-decoration: none;
 }
 
-/* Publication titles get a quiet hover affordance without restoring global link underlines. */
-#publications .item-title a:hover,
-#publications .item-title a:focus-visible {
+/* Publication titles keep an invisible underline at rest so hover never flashes currentColor. */
+#publications .item-title a {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+  text-decoration-color: transparent;
+  transition: color 0.16s ease;
+}
+
+#publications .item-title a:hover,
+#publications .item-title a:focus-visible {
   text-decoration-color: var(--border-strong);
   text-decoration-color: color-mix(in srgb, var(--accent) 38%, transparent);
 }
