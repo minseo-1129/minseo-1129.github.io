@@ -115,6 +115,7 @@
     font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
     letter-spacing: 0;
     white-space: nowrap;
+    padding-top: 1px;
 }
 
 .toc-entry-title {
