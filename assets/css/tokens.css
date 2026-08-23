@@ -20,28 +20,28 @@
   --weight-regular: 400;
   --weight-medium: 500;
 
-  /* Neutral specimen palette + midpoint blue-violet accent */
+  /* Baseline neutral palette; accent remains the selected blue-violet. */
 
   /* Page + surfaces */
   --bg: #ffffff;
-  --surface: #f7f7f6;
+  --surface: #f6f7f8;
   --surface-strong: #ffffff;
-  --soft: #f7f7f6;
-  --takeaway-soft: #f7f7f6;
+  --soft: #f6f7f8;
+  --takeaway-soft: #f2f1f8;
 
   /* Text */
-  --text-main: #161616;
-  --text-muted: #737373;
+  --text-main: #20232a;
+  --text-muted: #707684;
 
   /* Accent */
   --accent: #5659b3;
   --accent-strong: #5659b3;
-  --accent-soft: #d8d8d6;
+  --accent-soft: #f2f1f8;
 
   /* Lines + tracks */
-  --border: #dedede;
-  --border-strong: #c8c8c6;
-  --track: #f7f7f6;
+  --border: #dfe2e8;
+  --border-strong: #cfd3dc;
+  --track: #f2f2f0;
 
   /* Radius */
   --radius: 7px;
