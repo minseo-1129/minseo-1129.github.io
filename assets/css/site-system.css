@@ -310,3 +310,13 @@ nav button.active {
   color: var(--toc-accent);
   text-decoration: none;
 }
+
+/* Publication titles get a quiet hover affordance without restoring global link underlines. */
+#publications .item-title a:hover,
+#publications .item-title a:focus-visible {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--border-strong);
+  text-decoration-color: color-mix(in srgb, var(--accent) 38%, transparent);
+}
