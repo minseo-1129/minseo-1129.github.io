@@ -604,7 +604,9 @@ h1 {
 
 .callout--question .callout__body {
   color: var(--accent) !important;
-  font-style: italic !important;
+  font-family: var(--font-mono) !important;
+  font-style: normal !important;
+  font-weight: var(--weight-regular) !important;
 }
 
 .callout--question::before {
