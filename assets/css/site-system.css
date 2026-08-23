@@ -128,6 +128,27 @@ p.intro,
   font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
 }
 
+/* Publications keep the same type scale, but use more generous relational spacing. */
+#publications .list-container {
+  gap: 34px;
+}
+
+#publications .list-item {
+  column-gap: 40px;
+}
+
+#publications .item-title {
+  margin-bottom: 8px;
+}
+
+#publications .item-author {
+  margin-top: 0;
+}
+
+#publications .item-venue {
+  margin-top: 7px;
+}
+
 .fragment-status {
   font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
 }
@@ -212,6 +233,8 @@ footer {
 @media (min-width: 721px) and (max-width: 900px) {
   body { padding: 32px 22px 64px; }
   nav { margin-bottom: 50px; }
+
+  #publications .list-item { column-gap: 32px; }
 }
 
 @media (max-width: 720px) {
@@ -235,6 +258,9 @@ footer {
     gap: 12px;
     align-items: start;
   }
+
+  #publications .list-container { gap: 30px; }
+  #publications .list-item { column-gap: 24px; }
 
   .item-meta {
     max-width: 92px;
