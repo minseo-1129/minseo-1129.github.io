@@ -57,14 +57,15 @@
 
   --type-subheading-size: 13px;
   --type-subheading-leading: 1.45;
+  --type-subheading-tracking: 0;
 
   --type-item-title-size: 14px;
   --type-item-title-leading: 1.45;
 
-  --type-lead-size: 16px;
+  --type-lead-size: 16.5px;
   --type-lead-leading: 1.62;
 
-  --type-body-size: 15px;
+  --type-body-size: 15.5px;
   --type-body-leading: 1.64;
 
   --type-small-size: 14px;
@@ -124,7 +125,7 @@
   :root {
     --type-display-size: 25px;
     --type-lead-size: 15.5px;
-    --type-body-size: 15px;
+    --type-body-size: 15.5px;
     --type-small-size: 13.5px;
     --type-metric-size: 22px;
   }
