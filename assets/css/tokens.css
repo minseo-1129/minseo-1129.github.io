@@ -59,10 +59,10 @@
   --type-item-title-size: 14px;
   --type-item-title-leading: 1.45;
 
-  --type-lead-size: 16.5px;
+  --type-lead-size: 16px;
   --type-lead-leading: 1.62;
 
-  --type-body-size: 15.5px;
+  --type-body-size: 15px;
   --type-body-leading: 1.64;
 
   --type-small-size: 14px;
@@ -122,22 +122,8 @@
   :root {
     --type-display-size: 25px;
     --type-lead-size: 15.5px;
-    --type-body-size: 15.5px;
+    --type-body-size: 15px;
     --type-small-size: 13.5px;
     --type-metric-size: 22px;
   }
-}
-
-/* Research detail reading scale.
-   Scoped tokens keep Home / Design unchanged and keep the hierarchy stable
-   across wide and compact layouts. */
-.case-shell {
-  --type-body-size: 15px;
-  --type-lead-size: 16px;
-  --type-small-size: 14px;
-}
-
-.case-shell .callout {
-  --type-lead-size: 15px;
-  --type-lead-leading: var(--type-body-leading);
 }
