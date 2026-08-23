@@ -124,6 +124,11 @@
     text-transform: none;
 }
 
+/* Editorial exception: keep only meaningfully paired phrases from splitting. */
+.toc-entry-title .keep-together {
+    white-space: nowrap;
+}
+
 .toc-entry:hover,
 .toc-entry:focus-visible {
     border-bottom: 0 !important;
