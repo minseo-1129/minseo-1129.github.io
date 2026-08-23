@@ -108,7 +108,7 @@
     border-top: 0;
 }
 
-/* Study ID is metadata; study title uses the shared item-title role. */
+/* Research study rows are navigation/UI units, not item-title hierarchy. */
 .toc-entry-num {
     color: var(--toc-ink-soft);
     font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
@@ -118,7 +118,7 @@
 
 .toc-entry-title {
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-item-title-size)/var(--type-item-title-leading) var(--font-mono);
+    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
     letter-spacing: 0;
     text-transform: none;
 }
@@ -225,16 +225,13 @@
 
     .toc-entry:first-child { padding-top: 0; }
 
-    .toc-entry-num {
+    .toc-entry-num,
+    .toc-entry-title {
         font-size: var(--type-secondary-size);
         line-height: var(--type-secondary-leading);
     }
 
-    .toc-entry-title {
-        font-size: var(--type-item-title-size);
-        line-height: var(--type-item-title-leading);
-        overflow-wrap: anywhere;
-    }
+    .toc-entry-title { overflow-wrap: anywhere; }
 
     .toc-footer {
         flex-direction: column;
