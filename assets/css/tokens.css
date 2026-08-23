@@ -1,55 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Roboto+Mono:wght@400;500;600&display=swap");
 
 /* Shared design tokens — single source of truth for the portfolio.
-   Baseline v1: typography, surfaces, line grammar and responsive states.
+   Typography and colour are aligned to the mobile typography specimen.
 
    Visual grammar:
    - horizontal rules = structured information
    - bordered boxes = independent units
    - neutral soft fill = sequence / process
-   - periwinkle = semantic emphasis / interaction
-   - deep indigo = strong editorial emphasis
+   - one blue-violet accent = emphasis / interaction
    - solid rules = information boundaries
    - dashed rules = narrative transitions
 */
 
 :root {
-  /* Typography families */
-  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* Typography families — specimen defaults to the device/system mono stack. */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --font-body: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   --weight-regular: 400;
   --weight-medium: 500;
+  --weight-semibold: 600;
 
-  /* Indigo Editorial palette
-     Core: #FAFAF8 / #D8D8D6 / #3D3F8C / #6F73D9 / #1F2230 */
-
-  /* Page + surfaces */
-  --bg: #fafaf8;
-  --surface: #ebebe9;
-  --surface-strong: #fafaf8;
-  --soft: #ebebe9;
-  --takeaway-soft: #dbdcf1;
+  /* Neutral specimen palette + midpoint blue-violet accent. */
+  --bg: #ffffff;
+  --surface: #f7f7f6;
+  --surface-strong: #ffffff;
+  --soft: #f7f7f6;
+  --takeaway-soft: #f7f7f6;
 
   /* Text */
-  --text-main: #1f2230;
-  --text-muted: #656770;
+  --text-main: #161616;
+  --text-muted: #737373;
 
   /* Accent */
-  --accent: #6f73d9;
-  --accent-strong: #3d3f8c;
-  --accent-soft: #dbdcf1;
+  --accent: #5659b3;
+  --accent-strong: #5659b3;
+  --accent-soft: #d8d8d6;
 
   /* Lines + tracks */
-  --border: #d8d8d6;
-  --border-strong: #adadc1;
-  --track: #e7e7e5;
+  --border: #dedede;
+  --border-strong: #c8c8c6;
+  --track: #f7f7f6;
 
   /* Radius */
   --radius: 7px;
 
-  /* Type roles — desktop / wide */
-  --type-display-size: 28px;
+  /* Type roles — Balanced specimen scale */
+  --type-display-size: 25px;
   --type-display-leading: 1.20;
   --type-display-tracking: -0.025em;
 
@@ -57,19 +54,19 @@
   --type-section-leading: 1.40;
   --type-section-tracking: -0.01em;
 
-  --type-subheading-size: 13px;
+  --type-subheading-size: 14px;
   --type-subheading-leading: 1.45;
 
   --type-item-title-size: 14px;
   --type-item-title-leading: 1.45;
 
-  --type-lead-size: 16px;
-  --type-lead-leading: 1.62;
+  --type-lead-size: 15.5px;
+  --type-lead-leading: 1.60;
 
-  --type-body-size: 15px;
+  --type-body-size: 15.5px;
   --type-body-leading: 1.64;
 
-  --type-small-size: 14px;
+  --type-small-size: 13.5px;
   --type-small-leading: 1.52;
 
   --type-secondary-size: 12px;
@@ -82,7 +79,7 @@
   --type-micro-leading: 1.38;
   --type-micro-tracking: 0.01em;
 
-  --type-metric-size: 24px;
+  --type-metric-size: 22px;
   --type-metric-leading: 1.20;
   --type-metric-tracking: -0.02em;
 
@@ -104,7 +101,6 @@
 
   /* ------------------------------------------------------------------
      Compatibility aliases used by the current code during migration.
-     These let us migrate HTML/CSS incrementally without breaking pages.
      ------------------------------------------------------------------ */
   --type-micro: var(--type-micro-size);
   --type-ui: var(--type-ui-size);
@@ -124,10 +120,19 @@
 
 @media (max-width: 720px) {
   :root {
+    /* Keep the specimen's Balanced mobile scale exact. */
     --type-display-size: 25px;
+    --type-display-leading: 1.20;
     --type-lead-size: 15.5px;
-    --type-body-size: 15px;
+    --type-lead-leading: 1.60;
+    --type-body-size: 15.5px;
+    --type-body-leading: 1.64;
     --type-small-size: 13.5px;
+    --type-small-leading: 1.52;
+    --type-ui-size: 12px;
+    --type-ui-leading: 1.42;
+    --type-micro-size: 11px;
+    --type-micro-leading: 1.38;
     --type-metric-size: 22px;
   }
 }
