@@ -1,15 +1,15 @@
 /* Research index — editorial table-of-contents treatment.
-   Revision v8: same as v7, plus a token-hygiene pass. tokens.css
-   declares a spacing scale (--component-gap, --inner-gap, --balanced-x/y,
-   --airy-x/y) that turned out to be unused everywhere on the live site —
-   declared but never adopted. Rather than deleting them (can't verify
-   that's safe without reading every page in the repo, including the
-   individual research/case-study pages), every spacing value this
-   redesign introduces now routes through the closest matching one of
-   those tokens instead of a bare number. Pre-existing spacing values
-   inherited unchanged from the original file (topline margins, footer
-   rhythm, entry padding, etc.) were left as-is — that's existing
-   site-wide convention, out of scope for this pass.
+   Revision v11: reverted to the v9 row layout (big identity word +
+   compact meta + text toggle) — the v10 flat-group pivot is set aside
+   for now. One change from v9: the identity word (FORME, REDI...) now
+   uses the site's actual h1 rule (1.8rem / weight 700 / no
+   font-family override) instead of the --type-metric-size + --font-mono
+   pairing, which looked plausible but wasn't tied to any real element
+   elsewhere on the site. This is a genuine "h1 in a new place," the
+   same way v5's original goal was, just using the real rule this time
+   instead of inventing a lookalike. No mobile font-size override here
+   either, since the real h1 doesn't get one — 1.8rem is a bare rem
+   value, not wired to the token file's responsive --type-* overrides.
 */
 
 .research-toc {
@@ -43,13 +43,6 @@
 .toc-topline strong {
     color: var(--toc-ink);
     font-weight: var(--weight-medium);
-}
-
-.toc-intro {
-    max-width: 650px;
-    margin-bottom: 48px;
-    color: var(--toc-ink-soft);
-    font: var(--weight-regular) var(--type-lead-size)/var(--type-lead-leading) var(--font-body);
 }
 
 .toc-list--rows {
@@ -97,11 +90,17 @@
    it's the closest existing role to "large label," and pulling its
    leading/tracking along with it keeps the whole trio from the same
    token instead of inventing an off-scale 25px. */
+/* Matches the site's actual h1 exactly: font-size 1.8rem, weight 700,
+   no font-family override (inherits the body mono default, same as
+   every other heading-level element — see v9's font-family audit).
+   Previously used --type-metric-size/--font-mono, which was a
+   plausible-looking but invented pairing; this uses the real h1 rule
+   instead of a lookalike. */
 .toc-row-big {
     grid-column: 1;
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-metric-size)/var(--type-metric-leading) var(--font-mono);
-    letter-spacing: var(--type-metric-tracking);
+    font-size: 1.8rem;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -127,7 +126,9 @@
 .toc-row-title {
     margin: 0;
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-subheading-size)/var(--type-subheading-leading) var(--font-body);
+    font-weight: var(--weight-medium);
+    font-size: var(--type-subheading-size);
+    line-height: var(--type-subheading-leading);
     letter-spacing: var(--type-subheading-tracking);
     text-transform: uppercase;
 }
@@ -135,7 +136,9 @@
 .toc-row-q {
     margin: var(--inner-gap) 0 0;
     color: var(--toc-accent);
-    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-body);
+    font-weight: var(--weight-regular);
+    font-size: var(--type-secondary-size);
+    line-height: var(--type-secondary-leading);
 }
 
 /* Text-based +/- toggle instead of a chevron — legible at a glance,
@@ -198,9 +201,18 @@
     padding-top: 1px;
 }
 
+/* Matches .item-title (Publications) and .project-card h3 (Design)
+   exactly: no font-family override — inherit the site's body-level
+   mono default instead of opting into --font-body. This is the direct
+   analog of a Design card title or a Publications paper title, so it
+   now uses the same weight (600, not the token's --weight-medium/500)
+   and the same size (--type-body) those use, rather than its own
+   one-off values. */
 .toc-entry-title {
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-item-title-size)/var(--type-small-leading) var(--font-body);
+    font-weight: 600;
+    font-size: var(--type-body);
+    line-height: var(--type-small-leading);
     letter-spacing: 0;
     text-transform: none;
 }
@@ -254,11 +266,6 @@
    side — at narrow widths a 28px word next to two lines of meta text
    gets cramped, so this is the one place row and meta separate. */
 @media (max-width: 720px) {
-    .toc-intro {
-        max-width: none;
-        margin-bottom: 39px;
-    }
-
     .toc-row-summary {
         grid-template-columns: minmax(0, 1fr) 24px;
         grid-template-rows: auto auto;
@@ -293,8 +300,6 @@
     }
 
     .toc-entry-title {
-        font-size: var(--type-item-title-size);
-        line-height: var(--type-small-leading);
         overflow-wrap: anywhere;
     }
 
