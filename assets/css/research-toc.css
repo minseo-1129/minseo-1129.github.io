@@ -1,15 +1,10 @@
 /* Research index — editorial table-of-contents treatment.
-   Revision v11: reverted to the v9 row layout (big identity word +
-   compact meta + text toggle) — the v10 flat-group pivot is set aside
-   for now. One change from v9: the identity word (FORME, REDI...) now
-   uses the site's actual h1 rule (1.8rem / weight 700 / no
-   font-family override) instead of the --type-metric-size + --font-mono
-   pairing, which looked plausible but wasn't tied to any real element
-   elsewhere on the site. This is a genuine "h1 in a new place," the
-   same way v5's original goal was, just using the real rule this time
-   instead of inventing a lookalike. No mobile font-size override here
-   either, since the real h1 doesn't get one — 1.8rem is a bare rem
-   value, not wired to the token file's responsive --type-* overrides.
+   Revision v16: based on v11 (row layout, h1-matched identity word,
+   uppercase kicker, accent-coloured question, +/- toggle all kept
+   as-is). Only change: .toc-row-title now matches .project-card h3
+   exactly (0.92rem / 600 / 1.35, no uppercase) instead of the
+   invented uppercase-subheading treatment — the programme title reads
+   as the same "title" tier used inside a Design card.
 */
 
 .research-toc {
@@ -118,24 +113,36 @@
     display: block;
     margin-bottom: var(--inner-gap);
     color: var(--toc-ink-soft);
-    font: var(--weight-regular) var(--type-micro-size)/1.4 var(--font-mono);
+    font: var(--weight-regular) var(--type-micro-size)/1.4 var(--font-body);
     letter-spacing: .06em;
     text-transform: uppercase;
 }
 
+/* Matches .project-card h3 exactly: 0.92rem, weight 600, line-height
+   1.35. Was --type-subheading-size + uppercase + tracking — a
+   plausible "section heading" look, but not the actual title tier
+   used inside a Design card. Dropped uppercase too, since the card h3
+   isn't uppercase either. */
+/* Sans per request. font-weight uses --weight-medium (500), not a
+   bare 600 — DM Sans is only loaded at 400/500 (see tokens.css's
+   Google Fonts import), so 600 was requesting a weight that doesn't
+   exist and either fell back or got synthetic-bolded depending on the
+   browser. This is also why it's the token alias, not a bare number:
+   the token only ever offers weights that are actually loaded. */
 .toc-row-title {
     margin: 0;
     color: var(--toc-ink);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
     font-weight: var(--weight-medium);
-    font-size: var(--type-subheading-size);
-    line-height: var(--type-subheading-leading);
-    letter-spacing: var(--type-subheading-tracking);
+    line-height: 1.35;
     text-transform: uppercase;
 }
 
 .toc-row-q {
     margin: var(--inner-gap) 0 0;
     color: var(--toc-accent);
+    font-family: var(--font-body);
     font-weight: var(--weight-regular);
     font-size: var(--type-secondary-size);
     line-height: var(--type-secondary-leading);
@@ -201,16 +208,17 @@
     padding-top: 1px;
 }
 
-/* Matches .item-title (Publications) and .project-card h3 (Design)
-   exactly: no font-family override — inherit the site's body-level
-   mono default instead of opting into --font-body. This is the direct
-   analog of a Design card title or a Publications paper title, so it
-   now uses the same weight (600, not the token's --weight-medium/500)
-   and the same size (--type-body) those use, rather than its own
-   one-off values. */
+/* Was matched to .item-title/.project-card h3's literal weight (600)
+   while those were inherited mono — safe there, since system mono
+   fonts synthesize any weight fine. Now sans (--font-body) per
+   request, weight 600 is a real problem: DM Sans is only loaded at
+   400/500, so 600 silently fell back to a fake-bolded 500 in some
+   browsers. Uses --weight-medium (the token, not a bare number) so
+   this can't drift onto an unloaded weight again. */
 .toc-entry-title {
     color: var(--toc-ink);
-    font-weight: 600;
+    font-family: var(--font-body);
+    font-weight: var(--weight-medium);
     font-size: var(--type-body);
     line-height: var(--type-small-leading);
     letter-spacing: 0;
@@ -221,17 +229,9 @@
     white-space: nowrap;
 }
 
-.toc-entry:hover,
-.toc-entry:focus-visible {
-    border-bottom: 0 !important;
-}
-
 .toc-entry:hover .toc-entry-title,
 .toc-entry:focus-visible .toc-entry-title {
     color: var(--toc-accent);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
 }
 
 .toc-entry:focus-visible {
