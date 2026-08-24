@@ -1,5 +1,15 @@
 /* Research index — editorial table-of-contents treatment.
-   Baseline v1: same typography and responsive grammar as Research detail.
+   Revision v8: same as v7, plus a token-hygiene pass. tokens.css
+   declares a spacing scale (--component-gap, --inner-gap, --balanced-x/y,
+   --airy-x/y) that turned out to be unused everywhere on the live site —
+   declared but never adopted. Rather than deleting them (can't verify
+   that's safe without reading every page in the repo, including the
+   individual research/case-study pages), every spacing value this
+   redesign introduces now routes through the closest matching one of
+   those tokens instead of a bare number. Pre-existing spacing values
+   inherited unchanged from the original file (topline margins, footer
+   rhythm, entry padding, etc.) were left as-is — that's existing
+   site-wide convention, out of scope for this pass.
 */
 
 .research-toc {
@@ -42,34 +52,79 @@
     font: var(--weight-regular) var(--type-lead-size)/var(--type-lead-leading) var(--font-body);
 }
 
-.toc-list {
+.toc-list--rows {
     display: flex;
     flex-direction: column;
 }
 
-.toc-chapter {
+/* ---------------------------------------------------------------------
+   Row = <details>. Divider is a full-width rule (border-strong, a
+   touch darker than the usual --border, since this is the row's only
+   structural device — there's no card/box to lean on this time).
+   --------------------------------------------------------------------- */
+.toc-row {
+    border-top: 1px solid var(--border-strong);
+}
+
+.toc-row:last-of-type {
+    border-bottom: 1px solid var(--border-strong);
+}
+
+.toc-row-summary {
     display: grid;
-    grid-template-columns: 44px 185px minmax(0, 1fr);
-    column-gap: 28px;
-    align-items: start;
-    border-top: 1px solid var(--toc-rule);
-    padding-top: 22px;
-    margin-top: 32px;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.35fr) 26px;
+    column-gap: var(--airy-x);
+    align-items: center;
+    padding: var(--airy-y) 0;
+    cursor: pointer;
+    list-style: none;
 }
 
-.toc-chapter-num {
+.toc-row-summary::-webkit-details-marker { display: none; }
+.toc-row-summary::marker { content: ""; }
+
+.toc-row-summary:focus-visible {
+    outline: 1px dashed var(--toc-accent);
+    outline-offset: 4px;
+}
+
+/* The "identity" word — mono, not body. Every other structural/label
+   element on the site (topline codes, entry codes F-01/D-02, chapter
+   numbers) uses mono; body font is reserved for prose. This word reads
+   as a label ("which programme"), not a sentence, so it follows that
+   same rule rather than borrowing the display-heading treatment.
+   Sized with --type-metric-size (24px) rather than a bare number —
+   it's the closest existing role to "large label," and pulling its
+   leading/tracking along with it keeps the whole trio from the same
+   token instead of inventing an off-scale 25px. */
+.toc-row-big {
     grid-column: 1;
-    align-self: start;
+    color: var(--toc-ink);
+    font: var(--weight-medium) var(--type-metric-size)/var(--type-metric-leading) var(--font-mono);
+    letter-spacing: var(--type-metric-tracking);
+    text-transform: uppercase;
+}
+
+.toc-row-summary:hover .toc-row-big,
+.toc-row-summary:focus-visible .toc-row-big {
     color: var(--toc-accent);
-    font: var(--weight-medium) 22px/1 var(--font-mono);
 }
 
-.toc-chapter-title {
+.toc-row-meta {
     grid-column: 2;
-    align-self: start;
+    min-width: 0;
 }
 
-.toc-chapter-title h3 {
+.toc-row-kicker {
+    display: block;
+    margin-bottom: var(--inner-gap);
+    color: var(--toc-ink-soft);
+    font: var(--weight-regular) var(--type-micro-size)/1.4 var(--font-mono);
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.toc-row-title {
     margin: 0;
     color: var(--toc-ink);
     font: var(--weight-medium) var(--type-subheading-size)/var(--type-subheading-leading) var(--font-body);
@@ -77,19 +132,45 @@
     text-transform: uppercase;
 }
 
-/* Programme question = contextual framing, not structural metadata. */
-.toc-chapter-q {
-    margin: 7px 0 0;
-    max-width: 26ch;
-    color: var(--accent);
-    font: italic var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-body);
+.toc-row-q {
+    margin: var(--inner-gap) 0 0;
+    color: var(--toc-accent);
+    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-body);
 }
 
-/* Keep the programme framing and study list visually distinct without shrinking either. */
-.toc-entries {
+/* Text-based +/- toggle instead of a chevron — legible at a glance,
+   no icon asset needed. Same --type-metric-size as .toc-row-big rather
+   than a standalone 20px, so the two large-scale elements in this row
+   share one token instead of each picking their own number. */
+.toc-row-toggle {
     grid-column: 3;
+    justify-self: end;
+    color: var(--toc-ink-soft);
+    font: var(--weight-regular) var(--type-metric-size)/1 var(--font-mono);
+    transition: color .15s ease;
+}
+
+.toc-row-toggle::before {
+    content: "+";
+}
+
+.toc-row[open] > .toc-row-summary .toc-row-toggle::before {
+    content: "\2212"; /* minus sign */
+}
+
+.toc-row-summary:hover .toc-row-toggle {
+    color: var(--toc-accent);
+}
+
+/* Entries: no fluid grid column to line up under here (the row above is
+   fr-based), so indentation is a left rule instead of a computed margin
+   — reads as "nested under this row" without fighting the responsive
+   grid. */
+.toc-entries {
     min-width: 0;
-    margin-left: 24px;
+    margin: 0 0 var(--airy-y);
+    padding-left: var(--balanced-x);
+    border-left: 2px solid var(--toc-rule);
 }
 
 .toc-entry {
@@ -109,7 +190,6 @@
     border-top: 0;
 }
 
-/* Study number stays structural UI; individual work titles use the shared Mono title voice. */
 .toc-entry-num {
     color: var(--toc-ink-soft);
     font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
@@ -120,12 +200,11 @@
 
 .toc-entry-title {
     color: var(--toc-ink);
-    font: var(--weight-medium) var(--type-item-title-size)/var(--type-small-leading) var(--font-mono);
+    font: var(--weight-medium) var(--type-item-title-size)/var(--type-small-leading) var(--font-body);
     letter-spacing: 0;
     text-transform: none;
 }
 
-/* Editorial exception: keep only meaningfully paired phrases from splitting. */
 .toc-entry-title .keep-together {
     white-space: nowrap;
 }
@@ -161,77 +240,52 @@
     text-transform: uppercase;
 }
 
-/* Medium: keep the three-column architecture, compress it. */
+/* Medium: keep the two-part row, compress the gap and identity size a
+   touch so long words like "Multimodal" don't crowd the meta column. */
 @media (min-width: 721px) and (max-width: 900px) {
-    .toc-chapter {
-        grid-template-columns: 38px 185px minmax(0, 1fr);
-        column-gap: 20px;
+    .toc-row-summary {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) 24px;
+        column-gap: var(--balanced-x);
     }
 
-    .toc-chapter-num { font-size: 20px; }
-    .toc-entries { margin-left: 12px; }
 }
 
-/* Compact: chapter number + programme title, entries beneath. */
+/* Compact: identity word and meta stack instead of sitting side by
+   side — at narrow widths a 28px word next to two lines of meta text
+   gets cramped, so this is the one place row and meta separate. */
 @media (max-width: 720px) {
-    .toc-topline { margin-bottom: 32px; }
-
     .toc-intro {
         max-width: none;
         margin-bottom: 39px;
     }
 
-    .toc-chapter {
-        grid-template-columns: 34px minmax(0, 1fr);
-        column-gap: 12px;
-        padding-top: 23px;
-        margin-top: 32px;
-        align-items: baseline;
+    .toc-row-summary {
+        grid-template-columns: minmax(0, 1fr) 24px;
+        grid-template-rows: auto auto;
+        row-gap: var(--component-gap);
+        padding: var(--balanced-y) 0;
     }
 
-    .toc-chapter-num {
+    .toc-row-big {
         grid-column: 1;
         grid-row: 1;
-        align-self: first baseline;
-        font-size: 16px;
-        line-height: 1.35;
     }
 
-    .toc-chapter-title {
+    .toc-row-toggle {
         grid-column: 2;
         grid-row: 1;
-        align-self: first baseline;
-        min-width: 0;
+        align-self: start;
     }
 
-    .toc-chapter-title h3 {
-        font-size: var(--type-subheading-size);
-        line-height: var(--type-subheading-leading);
-    }
-
-    .toc-chapter-q {
-        margin-top: 7px;
-        max-width: none;
-        width: 100%;
-        font-size: var(--type-secondary-size);
-        line-height: var(--type-secondary-leading);
+    .toc-row-meta {
+        grid-column: 1 / -1;
+        grid-row: 2;
     }
 
     .toc-entries {
-        grid-column: 2;
-        grid-row: 2;
-        min-width: 0;
-        margin: 24px 0 0;
+        padding-left: var(--component-gap);
+        margin-bottom: var(--airy-y);
     }
-
-    .toc-entry {
-        grid-template-columns: 54px minmax(0, 1fr);
-        gap: 10px;
-        align-items: start;
-        padding: 11px 0;
-    }
-
-    .toc-entry:first-child { padding-top: 0; }
 
     .toc-entry-num {
         font-size: var(--type-secondary-size);
