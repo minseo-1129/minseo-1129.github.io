@@ -1,4 +1,4 @@
-<section aria-label="Research index" class="research-toc">
+<section aria-label="Research index" class="research-toc research-toc--rows">
   <div class="toc-topline">
     <span>R — 00</span>
     <span>
@@ -13,269 +13,160 @@
     of human care.
   </p>
 
-  <div class="toc-list">
+  <!--
+    Row layout: a short "identity" word sits large on the left (mirrors a
+    resume-style row where the employer name reads first), the full
+    programme title + framing question sit compact on the right, and a
+    text-based +/- toggle makes expand state legible without a chevron.
+    Still a native <details>/<summary> disclosure — zero JS, first row
+    open by default, rest collapsed.
+  -->
+  <div class="toc-list toc-list--rows">
 
     <!-- 01 · ForMe -->
-    <article class="toc-chapter">
-      <div class="toc-chapter-num">
-        01
-      </div>
-
-      <div class="toc-chapter-title">
-        <h3>
-          ForMe · Designing Interaction
-        </h3>
-        <p class="toc-chapter-q">
-          How can conversation scaffold action?
-        </p>
-      </div>
+    <details class="toc-row" open>
+      <summary class="toc-row-summary">
+        <span class="toc-row-big">ForMe</span>
+        <span class="toc-row-meta">
+          <span class="toc-row-kicker">2 studies</span>
+          <h3 class="toc-row-title">Designing Interaction</h3>
+          <p class="toc-row-q">How can conversation scaffold action?</p>
+        </span>
+        <span class="toc-row-toggle" aria-hidden="true"></span>
+      </summary>
 
       <div class="toc-entries">
-        <a
-          class="toc-entry toc-entry--first"
-          href="research/f01_dialogue.html"
-        >
-          <span class="toc-entry-num">
-            F-01 /
-          </span>
-          <span class="toc-entry-title">
-            Designing ForMe’s Task-Based Dialogue Flow
-          </span>
+        <a class="toc-entry toc-entry--first" href="research/f01_dialogue.html">
+          <span class="toc-entry-num">F-01 /</span>
+          <span class="toc-entry-title">Designing ForMe’s Task-Based Dialogue Flow</span>
         </a>
 
-        <a
-          class="toc-entry"
-          href="research/f02_scaling_forme.html"
-        >
-          <span class="toc-entry-num">
-            F-02 /
-          </span>
-          <span class="toc-entry-title">
-            From a Child–Agent Interaction to a <span class="keep-together">School–Family</span> Support System
-          </span>
+        <a class="toc-entry" href="research/f02_scaling_forme.html">
+          <span class="toc-entry-num">F-02 /</span>
+          <span class="toc-entry-title">From a Child–Agent Interaction to a <span class="keep-together">School–Family</span> Support System</span>
         </a>
       </div>
-    </article>
-
+    </details>
 
     <!-- 02 · REDI -->
-    <article class="toc-chapter">
-      <div class="toc-chapter-num">
-        02
-      </div>
-
-      <div class="toc-chapter-title">
-        <h3>
-          REDI · Designing Reflection with Personal Data
-        </h3>
-        <p class="toc-chapter-q">
-          How can everyday behaviour become something a person can understand
-          and act on?
-        </p>
-      </div>
+    <details class="toc-row">
+      <summary class="toc-row-summary">
+        <span class="toc-row-big">REDI</span>
+        <span class="toc-row-meta">
+          <span class="toc-row-kicker">4 studies</span>
+          <h3 class="toc-row-title">Designing Reflection with Personal Data</h3>
+          <p class="toc-row-q">How can everyday behaviour become something a person can understand and act on?</p>
+        </span>
+        <span class="toc-row-toggle" aria-hidden="true"></span>
+      </summary>
 
       <div class="toc-entries">
-        <a
-          class="toc-entry toc-entry--first"
-          href="research/d01_self_recording.html"
-        >
-          <span class="toc-entry-num">
-            D-01 /
-          </span>
-          <span class="toc-entry-title">
-            Designing from How Adolescents Already Record Their Lives
-          </span>
+        <a class="toc-entry toc-entry--first" href="research/d01_self_recording.html">
+          <span class="toc-entry-num">D-01 /</span>
+          <span class="toc-entry-title">Designing from How Adolescents Already Record Their Lives</span>
         </a>
 
-        <a
-          class="toc-entry"
-          href="research/d02_personalised_reports.html"
-        >
-          <span class="toc-entry-num">
-            D-02 /
-          </span>
-          <span class="toc-entry-title">
-            What Should a Personalised Health Report Actually Personalise?
-          </span>
+        <a class="toc-entry" href="research/d02_personalised_reports.html">
+          <span class="toc-entry-num">D-02 /</span>
+          <span class="toc-entry-title">What Should a Personalised Health Report Actually Personalise?</span>
         </a>
 
-        <a
-          class="toc-entry"
-          href="research/d03_digital_phenotype_system.html"
-        >
-          <span class="toc-entry-num">
-            D-03 /
-          </span>
-          <span class="toc-entry-title">
-            Turning Self-Tracking Habits into a Digital Phenotype Collection System
-          </span>
+        <a class="toc-entry" href="research/d03_digital_phenotype_system.html">
+          <span class="toc-entry-num">D-03 /</span>
+          <span class="toc-entry-title">Turning Self-Tracking Habits into a Digital Phenotype Collection System</span>
         </a>
 
-        <a
-          class="toc-entry"
-          href="research/d04_self_regulation.html"
-        >
-          <span class="toc-entry-num">
-            D-04 /
-          </span>
-          <span class="toc-entry-title">
-            From Self-Recording to Self-Regulation
-          </span>
+        <a class="toc-entry" href="research/d04_self_regulation.html">
+          <span class="toc-entry-num">D-04 /</span>
+          <span class="toc-entry-title">From Self-Recording to Self-Regulation</span>
         </a>
       </div>
-    </article>
-
+    </details>
 
     <!-- 03 · Multimodal Digital Phenotyping -->
-    <article class="toc-chapter">
-      <div class="toc-chapter-num">
-        03
-      </div>
-
-      <div class="toc-chapter-title">
-        <h3>
-          Multimodal Digital Phenotyping
-        </h3>
-        <p class="toc-chapter-q">
-          What complementary signals can sit alongside self-report?
-        </p>
-      </div>
+    <details class="toc-row">
+      <summary class="toc-row-summary">
+        <span class="toc-row-big">Multimodal</span>
+        <span class="toc-row-meta">
+          <span class="toc-row-kicker">1 study</span>
+          <h3 class="toc-row-title">Digital Phenotyping</h3>
+          <p class="toc-row-q">What complementary signals can sit alongside self-report?</p>
+        </span>
+        <span class="toc-row-toggle" aria-hidden="true"></span>
+      </summary>
 
       <div class="toc-entries">
-        <a
-          class="toc-entry toc-entry--first"
-          href="research/m01_multimodal_signals.html"
-        >
-          <span class="toc-entry-num">
-            M-01 /
-          </span>
-          <span class="toc-entry-title">
-            Exploring Multimodal Signals for Children’s Mental Health Screening
-          </span>
+        <a class="toc-entry toc-entry--first" href="research/m01_multimodal_signals.html">
+          <span class="toc-entry-num">M-01 /</span>
+          <span class="toc-entry-title">Exploring Multimodal Signals for Children’s Mental Health Screening</span>
         </a>
       </div>
-    </article>
-
+    </details>
 
     <!-- 04 · RECO -->
-    <article class="toc-chapter">
-      <div class="toc-chapter-num">
-        04
-      </div>
-
-      <div class="toc-chapter-title">
-        <h3>
-          RECO · Designing AI Inside Human Care
-        </h3>
-        <p class="toc-chapter-q">
-          What role should generative AI occupy when care already involves
-          human relationships?
-        </p>
-      </div>
+    <details class="toc-row">
+      <summary class="toc-row-summary">
+        <span class="toc-row-big">RECO</span>
+        <span class="toc-row-meta">
+          <span class="toc-row-kicker">4 studies</span>
+          <h3 class="toc-row-title">Designing AI Inside Human Care</h3>
+          <p class="toc-row-q">What role should generative AI occupy when care already involves human relationships?</p>
+        </span>
+        <span class="toc-row-toggle" aria-hidden="true"></span>
+      </summary>
 
       <div class="toc-entries">
-        <a
-          class="toc-entry toc-entry--first"
-          href="research/r01_discovering_role.html"
-        >
-          <span class="toc-entry-num">
-            R-01 /
-          </span>
-          <span class="toc-entry-title">
-            Defining the Role of AI Before Designing <span class="keep-together">the Agent</span>
-          </span>
+        <a class="toc-entry toc-entry--first" href="research/r01_discovering_role.html">
+          <span class="toc-entry-num">R-01 /</span>
+          <span class="toc-entry-title">Defining the Role of AI Before Designing <span class="keep-together">the Agent</span></span>
         </a>
 
-        <a
-          class="toc-entry"
-          href="research/r02_expectations_to_architecture.html"
-        >
-          <span class="toc-entry-num">
-            R-02 /
-          </span>
-          <span class="toc-entry-title">
-            Translating Stakeholder Expectations into Agent Architecture
-          </span>
+        <a class="toc-entry" href="research/r02_expectations_to_architecture.html">
+          <span class="toc-entry-num">R-02 /</span>
+          <span class="toc-entry-title">Translating Stakeholder Expectations into Agent Architecture</span>
         </a>
 
-        <a
-          class="toc-entry"
-          href="research/r03_architectural_consequences.html"
-        >
-          <span class="toc-entry-num">
-            R-03 /
-          </span>
-          <span class="toc-entry-title">
-            When Agent Architecture Becomes <span class="keep-together">Interaction Design</span>
-          </span>
+        <a class="toc-entry" href="research/r03_architectural_consequences.html">
+          <span class="toc-entry-num">R-03 /</span>
+          <span class="toc-entry-title">When Agent Architecture Becomes <span class="keep-together">Interaction Design</span></span>
         </a>
 
-        <a
-          class="toc-entry"
-          href="research/r04_generative_summaries.html"
-        >
-          <span class="toc-entry-num">
-            R-04 /
-          </span>
-          <span class="toc-entry-title">
-            Designing Summaries as Part of the Interaction
-          </span>
+        <a class="toc-entry" href="research/r04_generative_summaries.html">
+          <span class="toc-entry-num">R-04 /</span>
+          <span class="toc-entry-title">Designing Summaries as Part of the Interaction</span>
         </a>
       </div>
-    </article>
-
+    </details>
 
     <!-- 05 · Conditions around AI -->
-    <article class="toc-chapter">
-      <div class="toc-chapter-num">
-        05
-      </div>
-
-      <div class="toc-chapter-title">
-        <h3>
-          Designing Conditions Around AI
-        </h3>
-        <p class="toc-chapter-q">
-          How do we decide what AI should do, and whether it is ready to
-          participate in care?
-        </p>
-      </div>
+    <details class="toc-row">
+      <summary class="toc-row-summary">
+        <span class="toc-row-big">Conditions</span>
+        <span class="toc-row-meta">
+          <span class="toc-row-kicker">2 studies</span>
+          <h3 class="toc-row-title">Designing Conditions Around AI</h3>
+          <p class="toc-row-q">How do we decide what AI should do, and whether it is ready to participate in care?</p>
+        </span>
+        <span class="toc-row-toggle" aria-hidden="true"></span>
+      </summary>
 
       <div class="toc-entries">
-        <a
-          class="toc-entry toc-entry--first"
-          href="research/c01_community_care_ai.html"
-        >
-          <span class="toc-entry-num">
-            C-01 /
-          </span>
-          <span class="toc-entry-title">
-            Mapping What Conversational AI Can Actually Do in Community Care
-          </span>
+        <a class="toc-entry toc-entry--first" href="research/c01_community_care_ai.html">
+          <span class="toc-entry-num">C-01 /</span>
+          <span class="toc-entry-title">Mapping What Conversational AI Can Actually Do in Community Care</span>
         </a>
 
-        <a
-          class="toc-entry"
-          href="research/t01_ai_auditors.html"
-        >
-          <span class="toc-entry-num">
-            T-01 /
-          </span>
-          <span class="toc-entry-title">
-            Calibrating AI Auditors Before Trusting Their Judgements
-          </span>
+        <a class="toc-entry" href="research/t01_ai_auditors.html">
+          <span class="toc-entry-num">T-01 /</span>
+          <span class="toc-entry-title">Calibrating AI Auditors Before Trusting Their Judgements</span>
         </a>
       </div>
-    </article>
+    </details>
 
   </div>
 
   <div class="toc-footer">
-    <span>
-      Minseo Cho — Research
-    </span>
-    <span>
-      13 Studies / 5 Programmes
-    </span>
+    <span>Minseo Cho — Research</span>
+    <span>13 Studies / 5 Programmes</span>
   </div>
 </section>
