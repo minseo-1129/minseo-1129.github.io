@@ -40,6 +40,17 @@
     font-weight: var(--weight-medium);
 }
 
+/* Matches #design h2 / #publications h2 exactly — the "DESIGN" /
+   "PUBLICATIONS" section heading those tabs show right under their
+   topline. Research never had this tier; adding it closes that gap. */
+.toc-heading {
+    margin: 0 0 40px;
+    color: var(--accent-strong);
+    font: var(--weight-medium) var(--type-section-size)/var(--type-section-leading) var(--font-mono);
+    letter-spacing: var(--type-section-tracking);
+    text-transform: uppercase;
+}
+
 .toc-list--rows {
     display: flex;
     flex-direction: column;
@@ -50,12 +61,8 @@
    touch darker than the usual --border, since this is the row's only
    structural device — there's no card/box to lean on this time).
    --------------------------------------------------------------------- */
-.toc-row {
+.toc-row:not(:first-of-type) {
     border-top: 1px solid var(--border-strong);
-}
-
-.toc-row:last-of-type {
-    border-bottom: 1px solid var(--border-strong);
 }
 
 .toc-row-summary {
@@ -119,7 +126,7 @@
     flex-wrap: nowrap;
     gap: 8px;
     margin-bottom: var(--inner-gap);
-    color: var(--toc-accent);
+    color: var(--toc-ink);
     font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
     white-space: nowrap;
 }
