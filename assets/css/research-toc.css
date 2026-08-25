@@ -109,13 +109,30 @@
     min-width: 0;
 }
 
+/* Matches .project-card .card-meta exactly: font-mono, weight-regular,
+   --type-secondary-size — the real "Jan 2022 – Mar 2022" treatment.
+   nowrap on both the flex row and each tag so "Digital Phenotyping"
+   etc. never breaks onto a second line. */
 .toc-row-kicker {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-bottom: var(--inner-gap);
+    color: var(--toc-accent);
+    font: var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
+    white-space: nowrap;
+}
+
+.toc-row-tags {
     display: block;
     margin-bottom: var(--inner-gap);
-    color: var(--toc-ink-soft);
-    font: var(--weight-regular) var(--type-micro-size)/1.4 var(--font-body);
-    letter-spacing: .06em;
-    text-transform: uppercase;
+    color: var(--toc-accent);
+    font: italic var(--weight-regular) var(--type-secondary-size)/var(--type-secondary-leading) var(--font-mono);
+}
+
+.toc-row-tag:not(:last-child)::after {
+    content: ", ";
 }
 
 /* Matches .project-card h3 exactly: 0.92rem, weight 600, line-height
@@ -139,46 +156,43 @@
     text-transform: uppercase;
 }
 
-.toc-row-q {
-    margin: var(--inner-gap) 0 0;
-    color: var(--toc-accent);
-    font-family: var(--font-body);
-    font-weight: var(--weight-regular);
-    font-size: var(--type-secondary-size);
-    line-height: var(--type-secondary-leading);
-}
-
 /* Text-based +/- toggle instead of a chevron — legible at a glance,
    no icon asset needed. Same --type-metric-size as .toc-row-big rather
    than a standalone 20px, so the two large-scale elements in this row
    share one token instead of each picking their own number. */
+/* Rotating chevron instead of +/- — same thin-line approach (a border,
+   not a font glyph), but a diagonal arrow reads as a more familiar
+   "expand" affordance than a drawn plus/minus. */
 .toc-row-toggle {
     grid-column: 3;
     justify-self: end;
-    color: var(--toc-ink-soft);
-    font: var(--weight-regular) var(--type-metric-size)/1 var(--font-mono);
-    transition: color .15s ease;
+    width: 8px;
+    height: 8px;
+    margin-top: 2px;
+    border-right: 1.5px solid var(--toc-ink-soft);
+    border-bottom: 1.5px solid var(--toc-ink-soft);
+    transform: rotate(-45deg);
+    transition: transform .18s ease, border-color .18s ease;
 }
 
-.toc-row-toggle::before {
-    content: "+";
-}
-
-.toc-row[open] > .toc-row-summary .toc-row-toggle::before {
-    content: "\2212"; /* minus sign */
+.toc-row[open] > .toc-row-summary .toc-row-toggle {
+    transform: rotate(45deg);
+    margin-top: -2px;
 }
 
 .toc-row-summary:hover .toc-row-toggle {
-    color: var(--toc-accent);
+    border-color: var(--toc-accent);
 }
 
 /* Entries: no fluid grid column to line up under here (the row above is
    fr-based), so indentation is a left rule instead of a computed margin
    — reads as "nested under this row" without fighting the responsive
-   grid. */
+   grid. Top margin bumped well past --airy-y (22px) on purpose — the
+   ask was specifically for more air between the row header and the
+   first study, not just the site's default rhythm. */
 .toc-entries {
     min-width: 0;
-    margin: 0 0 var(--airy-y);
+    margin: 36px 0 var(--airy-y);
     padding-left: var(--balanced-x);
     border-left: 2px solid var(--toc-rule);
 }
@@ -246,19 +260,6 @@
     outline-offset: 3px;
 }
 
-.toc-footer {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: 32px;
-    padding-top: 16px;
-    border-top: 1px solid var(--toc-rule);
-    color: var(--toc-ink-soft);
-    font: var(--weight-regular) var(--type-micro-size)/1.4 var(--font-mono);
-    letter-spacing: .10em;
-    text-transform: uppercase;
-}
-
 /* Medium: keep the two-part row, compress the gap and identity size a
    touch so long words like "Multimodal" don't crowd the meta column. */
 @media (min-width: 721px) and (max-width: 900px) {
@@ -308,11 +309,5 @@
 
     .toc-entry-title {
         overflow-wrap: anywhere;
-    }
-
-    .toc-footer {
-        flex-direction: column;
-        gap: 5px;
-        margin-top: 32px;
     }
 }
