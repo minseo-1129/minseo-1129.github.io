@@ -215,12 +215,19 @@
    400/500, so 600 silently fell back to a fake-bolded 500 in some
    browsers. Uses --weight-medium (the token, not a bare number) so
    this can't drift onto an unloaded weight again. */
+/* The real values, confirmed against site-system.css (which loads
+   after both styles.css and research-toc.css, so it wins): .item-title
+   and .project-card h3 are both
+   `font: var(--weight-medium) var(--type-item-title-size)/var(--type-item-title-leading) var(--font-mono)`
+   — genuine Roboto Mono at weight 500 / 14px, not the inherited-system-
+   mono-at-weight-600 guess from styles.css alone, and not the sans
+   experiment from earlier this session either. */
 .toc-entry-title {
     color: var(--toc-ink);
-    font-family: var(--font-body);
+    font-family: var(--font-mono);
     font-weight: var(--weight-medium);
-    font-size: var(--type-body);
-    line-height: var(--type-small-leading);
+    font-size: var(--type-item-title-size);
+    line-height: var(--type-item-title-leading);
     letter-spacing: 0;
     text-transform: none;
 }
